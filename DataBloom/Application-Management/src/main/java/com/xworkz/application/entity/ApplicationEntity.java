@@ -1,18 +1,20 @@
 package com.xworkz.application.entity;
 
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 @Entity
-@ToString
-@Setter
-@Getter
+@Data
 @RequiredArgsConstructor
 @Table(name="application_info")
+@NamedQuery(name = "findByName", query = "select a from ApplicationEntity a where a.applicationName=:name")
+@NamedQuery(name = "findBySize", query = "select s from ApplicationEntity s where s.applicationSize=:size")
+@NamedQuery(name = "findByCompany", query = "select c from ApplicationEntity c where c.company=:company")
+@NamedQuery(name = "findByUsers", query = "select u from ApplicationEntity u where u.noOfUsers =:users")
+@NamedQuery(name = "findByRatings", query = "select r from ApplicationEntity r where r.ratings=:ratings")
+@NamedQuery(name = "findByLaunchDate", query = "select d from ApplicationEntity d where d.launchDate=:launchDate")
+
 public class ApplicationEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
