@@ -1,0 +1,30 @@
+package com.xworkz.application.repository;
+
+import com.xworkz.application.entity.ApplicationEntity;
+
+import java.time.LocalDate;
+import java.util.List;
+
+public interface ApplicationRepository {
+    void saveApplication(ApplicationEntity applicationEntity);
+
+    ApplicationEntity readApplication(Integer id);
+
+    ApplicationEntity updateApplication(ApplicationEntity entity, Integer id);
+
+    ApplicationEntity deleteApplication(Integer id);
+
+    ApplicationEntity findApplicationByName(String name);
+
+    ApplicationEntity findBySize(String size);
+
+    ApplicationEntity findByCompany(String company);
+
+    ApplicationEntity findByUsers(Integer users);
+
+    ApplicationEntity findByRatings(Float ratings);
+
+    ApplicationEntity findByDate(LocalDate date);
+
+    List<ApplicationEntity> findByAll();
+}

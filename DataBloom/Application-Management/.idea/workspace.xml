@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="2059d8df-9d03-4fda-a3e3-df3d3479137e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../Redbus/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Redbus/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Redbus/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Redbus/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Redbus/src/main/java/com/xworkz/redbus/entity/RedBusEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Redbus/src/main/java/com/xworkz/redbus/repository/RedBusRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Redbus/src/main/java/com/xworkz/redbus/repository/RedBusRepositoryImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Redbus/src/main/java/com/xworkz/redbus/runner/RedBusRunner.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Redbus/src/main/java/com/xworkz/redbus/service/RedBusService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Redbus/src/main/java/com/xworkz/redbus/service/RedBusServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Redbus/src/main/resources/META-INF/persistence.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Redbus/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Redbus/src/main/webapp/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Zoo/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Zoo/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Zoo/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Zoo/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Zoo/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Zoo/src/main/webapp/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../customer/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../customer/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../customer/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../customer/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../customer/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../customer/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../customer/src/main/webapp/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Spring Practice/Beach/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Spring Practice/Beach/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Spring Practice/Beach/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Spring Practice/Beach/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Spring Practice/Beach/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Spring Practice/Beach/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Spring Practice/Beach/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Spring Practice/Beach/src/main/webapp/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Spring Practice/SuperMarket/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Spring Practice/SuperMarket/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Spring Practice/SuperMarket/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Spring Practice/SuperMarket/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Spring Practice/operations/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring Practice/SuperMarket/src/main/java/com/xworkz/supermarket/configuration/ProductInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Spring Practice/SuperMarket/src/main/java/com/xworkz/supermarket/configuration/ProductInitializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring Practice/SuperMarket/src/main/java/com/xworkz/supermarket/dto/ProductDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Spring Practice/SuperMarket/src/main/java/com/xworkz/supermarket/dto/ProductDTO.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" show_ignored="true">
+    <option name="groupingKeys">
+      <option value="directory" />
+      <option value="module" />
+      <option value="repository" />
+    </option>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;MeghnaGN128&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/MeghnaGN128/DataBloom.git&quot;,
+    &quot;accountId&quot;: &quot;c9bfc347-9a18-40f8-9fe0-b1769591e4f9&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="30iVvoyNI1tqDvKQ2AnvafYfyjc" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.ApplicationRunner.executor&quot;: &quot;Run&quot;,
+    &quot;Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/ninga/IdeaProjects/DataBloom/Application-Management&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
+  }
+}</component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <option name="filePath" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2059d8df-9d03-4fda-a3e3-df3d3479137e" name="Changes" comment="" />
+      <created>1754110616638</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1754110616638</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Commit Practice  jpa">
+      <option name="closed" value="true" />
+      <created>1754112005280</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1754112005280</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Commit Application Spring in jpa">
+      <option name="closed" value="true" />
+      <created>1754150845676</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1754150845676</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Commit Application Spring in jpa">
+      <option name="closed" value="true" />
+      <created>1754296516463</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1754296516463</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Commit Practice  jpa" />
+    <MESSAGE value="Commit Application Spring in jpa" />
+    <option name="LAST_COMMIT_MESSAGE" value="Commit Application Spring in jpa" />
+  </component>
+</project>

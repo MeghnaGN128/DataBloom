@@ -1,0 +1,1362 @@
+Index: ../../SpringPractice/src/main/java/com/xworkz/java/configuration/CardBoardConfiguration.java
+===================================================================
+diff --git a/../../SpringPractice/src/main/java/com/xworkz/java/configuration/CardBoardConfiguration.java b/../../SpringPractice/src/main/java/com/xworkz/java/configuration/CardBoardConfiguration.java
+deleted file mode 100644
+--- a/../../SpringPractice/src/main/java/com/xworkz/java/configuration/CardBoardConfiguration.java	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
++++ /dev/null	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
+@@ -1,12 +0,0 @@
+-package com.xworkz.java.configuration;
+-
+-import org.springframework.context.annotation.ComponentScan;
+-import org.springframework.context.annotation.Configuration;
+-
+-@Configuration
+-@ComponentScan("com.xworkz.java")
+-public class CardBoardConfiguration {
+-    public CardBoardConfiguration(){
+-        System.out.println("running in CardBoardConfiguration");
+-    }
+-}
+Index: ../../SpringPractice/src/main/java/com/xworkz/java/configuration/BucketConfiguration.java
+===================================================================
+diff --git a/../../SpringPractice/src/main/java/com/xworkz/java/configuration/BucketConfiguration.java b/../../SpringPractice/src/main/java/com/xworkz/java/configuration/BucketConfiguration.java
+deleted file mode 100644
+--- a/../../SpringPractice/src/main/java/com/xworkz/java/configuration/BucketConfiguration.java	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
++++ /dev/null	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
+@@ -1,12 +0,0 @@
+-package com.xworkz.java.configuration;
+-
+-import org.springframework.context.annotation.ComponentScan;
+-import org.springframework.stereotype.Component;
+-
+-@Component
+-@ComponentScan("com.xworkz.java")
+-public class BucketConfiguration {
+-    public BucketConfiguration(){
+-        System.out.println("running in BucketConfiguration ");
+-    }
+-}
+Index: ../../Spring Practice/IceCreamApplication/src/main/java/com/xworkz/order/service/OrderService.java
+===================================================================
+diff --git a/../../Spring Practice/IceCreamApplication/src/main/java/com/xworkz/order/service/OrderService.java b/../../Spring Practice/IceCreamApplication/src/main/java/com/xworkz/order/service/OrderService.java
+deleted file mode 100644
+--- a/../../Spring Practice/IceCreamApplication/src/main/java/com/xworkz/order/service/OrderService.java	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
++++ /dev/null	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
+@@ -1,7 +0,0 @@
+-package com.xworkz.order.service;
+-
+-import com.xworkz.order.dto.OrderDTO;
+-
+-public interface OrderService {
+-    boolean save(OrderDTO orderDTO);
+-}
+Index: ../../SpringPractice/BankingMangament/src/main/webapp/WEB-INF/web.xml
+===================================================================
+diff --git a/../../SpringPractice/BankingMangament/src/main/webapp/WEB-INF/web.xml b/../../SpringPractice/BankingMangament/src/main/webapp/WEB-INF/web.xml
+deleted file mode 100644
+--- a/../../SpringPractice/BankingMangament/src/main/webapp/WEB-INF/web.xml	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
++++ /dev/null	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
+@@ -1,7 +0,0 @@
+-<!DOCTYPE web-app PUBLIC
+- "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+- "http://java.sun.com/dtd/web-app_2_3.dtd" >
+-
+-<web-app>
+-  <display-name>Archetype Created Web Application</display-name>
+-</web-app>
+Index: ../../Spring/target/maven-archiver/pom.properties
+===================================================================
+diff --git a/../../Spring/target/maven-archiver/pom.properties b/../../Spring/target/maven-archiver/pom.properties
+deleted file mode 100644
+--- a/../../Spring/target/maven-archiver/pom.properties	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
++++ /dev/null	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
+@@ -1,3 +0,0 @@
+-artifactId=Spring
+-groupId=com.spring
+-version=1.0-SNAPSHOT
+Index: ../../SpringPractice/BankingMangament/src/main/java/com/xworkz/bank/configuration/BankInitializer.java
+===================================================================
+diff --git a/../../SpringPractice/BankingMangament/src/main/java/com/xworkz/bank/configuration/BankInitializer.java b/../../SpringPractice/BankingMangament/src/main/java/com/xworkz/bank/configuration/BankInitializer.java
+deleted file mode 100644
+--- a/../../SpringPractice/BankingMangament/src/main/java/com/xworkz/bank/configuration/BankInitializer.java	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
++++ /dev/null	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
+@@ -1,20 +0,0 @@
+-package com.xworkz.bank.configuration;
+-
+-import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+-
+-public class BankInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
+-    @Override
+-    protected Class<?>[] getRootConfigClasses() {
+-        return new Class[0];
+-    }
+-
+-    @Override
+-    protected Class<?>[] getServletConfigClasses() {
+-        return new Class[]{BankConfiguration.class};
+-    }
+-
+-    @Override
+-    protected String[] getServletMappings() {
+-        return new String[]{"/details"};
+-    }
+-}
+Index: ../../Ice-Cream/src/main/java/com/xworkz/icecream/excel/DemoExcelApache.java
+===================================================================
+diff --git a/../../Ice-Cream/src/main/java/com/xworkz/icecream/excel/DemoExcelApache.java b/../../Ice-Cream/src/main/java/com/xworkz/icecream/excel/DemoExcelApache.java
+deleted file mode 100644
+--- a/../../Ice-Cream/src/main/java/com/xworkz/icecream/excel/DemoExcelApache.java	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
++++ /dev/null	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
+@@ -1,59 +0,0 @@
+-package com.xworkz.icecream.excel;
+-
+-import org.apache.poi.xssf.usermodel.XSSFCell;
+-import org.apache.poi.xssf.usermodel.XSSFRow;
+-import org.apache.poi.xssf.usermodel.XSSFSheet;
+-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+-
+-import java.io.FileInputStream;
+-import java.io.FileNotFoundException;
+-import java.io.IOException;
+-import java.util.Iterator;
+-
+-public class DemoExcelApache {
+-
+-    public static void main(String[] args) throws IOException {
+-
+-        String excel = "C:\\Users\\ninga\\IdeaProjects\\Ice-Cream\\src\\main\\resources\\ice-cream.xlsx";
+-
+-        try {
+-            FileInputStream fileInputStream = new FileInputStream(excel);
+-            XSSFWorkbook workbook = new XSSFWorkbook(fileInputStream);
+-            XSSFSheet sheet = workbook.cloneSheet(0);
+-            // XSSFSheet sheet = workbook.getSheet("Sheet1");
+-
+-            Iterator iterator = sheet.iterator();
+-
+-            while (iterator.hasNext()) {
+-
+-                XSSFRow row = (XSSFRow) iterator.next();
+-                Iterator celliterator = row.cellIterator();
+-
+-                while (celliterator.hasNext()) {
+-
+-                    XSSFCell cell = (XSSFCell) celliterator.next();
+-                    switch (cell.getCellType()) {
+-                        case STRING:
+-                            System.out.print(cell.getStringCellValue() + " ");
+-                            break;
+-                        case NUMERIC:
+-                            System.out.print(cell.getNumericCellValue() + " ");
+-                            break;
+-                        case BOOLEAN:
+-                            System.out.print(cell.getBooleanCellValue() + " ");
+-                            break;
+-                    }
+-                    System.out.print("  |  ");
+-                }
+-                System.out.println();
+-            }
+-        } catch (FileNotFoundException e) {
+-            System.out.println("FileNotFoundException");
+-
+-        } catch (IOException e) {
+-            System.out.println("IOException"+e.getMessage());
+-        }
+-
+-
+-    }
+-}
+Index: ../../Spring Practice/applicationmanagement/src/main/java/com/xworkz/application/repository/ApplicationRepositortImpl.java
+===================================================================
+diff --git a/../../Spring Practice/applicationmanagement/src/main/java/com/xworkz/application/repository/ApplicationRepositortImpl.java b/../../Spring Practice/applicationmanagement/src/main/java/com/xworkz/application/repository/ApplicationRepositortImpl.java
+deleted file mode 100644
+--- a/../../Spring Practice/applicationmanagement/src/main/java/com/xworkz/application/repository/ApplicationRepositortImpl.java	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
++++ /dev/null	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
+@@ -1,85 +0,0 @@
+-package com.xworkz.application.repository;
+-
+-import com.xworkz.application.entity.ApplicationEntity;
+-
+-import javax.persistence.*;
+-import java.util.Optional;
+-
+-public class ApplicationRepositortImpl implements ApplicationRepository {
+-    public ApplicationRepositortImpl() {
+-        System.out.println("running in ApplicationRepositortImpl");
+-    }
+-
+-    @Override
+-    public boolean saveApplication(ApplicationEntity applicationEntity) {
+-        System.out.println("running in saveApplication");
+-        EntityManagerFactory entityManagerFactory = null;
+-        EntityManager entityManager = null;
+-        EntityTransaction entityTransaction = null;
+-
+-        try {
+-            entityManagerFactory = Persistence.createEntityManagerFactory("x-workz");
+-            entityManager = entityManagerFactory.createEntityManager();
+-            entityTransaction = entityManager.getTransaction();
+-
+-            entityManager.getTransaction().begin();
+-            entityManager.persist(applicationEntity);
+-            entityManager.getTransaction().commit();
+-            System.out.println("Insertion completed");
+-        } catch (PersistenceException e) {
+-            e.printStackTrace();
+-            if (entityTransaction != null) {
+-                entityTransaction.rollback();
+-                System.out.println("rollback");
+-                return false;
+-            }
+-        } finally {
+-            if (entityManagerFactory != null) {
+-                entityManagerFactory.close();
+-            }
+-            if (entityManager != null) {
+-                entityManager.close();
+-
+-            }
+-        }
+-        return true;
+-    }
+-
+-    @Override
+-    public Optional<ApplicationEntity> findById(int id) {
+-        EntityManagerFactory entityManagerFactory = null;
+-        EntityManager entityManager = null;
+-        ApplicationEntity applicationEntity = null;
+-        try {
+-            entityManagerFactory = Persistence.createEntityManagerFactory("x-workz");
+-            entityManager = entityManagerFactory.createEntityManager();
+-            applicationEntity = entityManager.find(ApplicationEntity.class, id);
+-            if (applicationEntity != null) {
+-                System.out.println("Id is found");
+-            }
+-        } catch (PersistenceException e) {
+-            e.printStackTrace();
+-        }
+-    }finally{
+-        if (entityManagerFactory != null) {
+-            entityManagerFactory.close();
+-        }
+-        if (entityManager != null) {
+-            entityManager.close();
+-
+-        }
+-    }
+-        return applicationEntity == null ? Optional.empty() : Optional.of(applicationEntity);
+-}
+-
+-@Override
+-public boolean deleteById(int id) {
+-    return false;
+-}
+-
+-@Override
+-public boolean updateById(int id, String company) {
+-    return false;
+-}
+-
+-}
+Index: ../../SpringPractice/BankingMangament/src/main/java/com/xworkz/bank/configuration/BankConfiguration.java
+===================================================================
+diff --git a/../../SpringPractice/BankingMangament/src/main/java/com/xworkz/bank/configuration/BankConfiguration.java b/../../SpringPractice/BankingMangament/src/main/java/com/xworkz/bank/configuration/BankConfiguration.java
+deleted file mode 100644
+--- a/../../SpringPractice/BankingMangament/src/main/java/com/xworkz/bank/configuration/BankConfiguration.java	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
++++ /dev/null	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
+@@ -1,12 +0,0 @@
+-package com.xworkz.bank.configuration;
+-
+-import org.springframework.context.annotation.ComponentScan;
+-import org.springframework.context.annotation.Configuration;
+-
+-@Configuration
+-@ComponentScan("com.xworkz.bank")
+-public class BankConfiguration {
+-    public BankConfiguration(){
+-        System.out.println("running in BankConfiguration ");
+-    }
+-}
+Index: ../../Spring Practice/IceCreamApplication/src/main/webapp/index.jsp
+===================================================================
+diff --git a/../../Spring Practice/IceCreamApplication/src/main/webapp/index.jsp b/../../Spring Practice/IceCreamApplication/src/main/webapp/index.jsp
+deleted file mode 100644
+--- a/../../Spring Practice/IceCreamApplication/src/main/webapp/index.jsp	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
++++ /dev/null	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
+@@ -1,6 +0,0 @@
+-<html>
+-<body>
+-<h2>Hello World!</h2>
+-<a href="Order.jsp">Go To Order</a>
+-</body>
+-</html>
+Index: ../../Spring/target/Spring/WEB-INF/web.xml
+===================================================================
+diff --git a/../../Spring/target/Spring/WEB-INF/web.xml b/../../Spring/target/Spring/WEB-INF/web.xml
+deleted file mode 100644
+--- a/../../Spring/target/Spring/WEB-INF/web.xml	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
++++ /dev/null	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
+@@ -1,7 +0,0 @@
+-<!DOCTYPE web-app PUBLIC
+- "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+- "http://java.sun.com/dtd/web-app_2_3.dtd" >
+-
+-<web-app>
+-  <display-name>Archetype Created Web Application</display-name>
+-</web-app>
+Index: ../../Spring Practice/IceCreamApplication/src/main/java/com/xworkz/order/configuration/OrderConfiguration.java
+===================================================================
+diff --git a/../../Spring Practice/IceCreamApplication/src/main/java/com/xworkz/order/configuration/OrderConfiguration.java b/../../Spring Practice/IceCreamApplication/src/main/java/com/xworkz/order/configuration/OrderConfiguration.java
+deleted file mode 100644
+--- a/../../Spring Practice/IceCreamApplication/src/main/java/com/xworkz/order/configuration/OrderConfiguration.java	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
++++ /dev/null	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
+@@ -1,10 +0,0 @@
+-package com.xworkz.order.configuration;
+-
+-import org.springframework.stereotype.Component;
+-
+-@Component
+-public class OrderConfiguration {
+-    public OrderConfiguration(){
+-        System.out.println("Running in OrderConfiguration");
+-    }
+-}
+Index: ../../SpringPractice/src/main/java/com/xworkz/java/configuration/RollerConfiguration.java
+===================================================================
+diff --git a/../../SpringPractice/src/main/java/com/xworkz/java/configuration/RollerConfiguration.java b/../../SpringPractice/src/main/java/com/xworkz/java/configuration/RollerConfiguration.java
+deleted file mode 100644
+--- a/../../SpringPractice/src/main/java/com/xworkz/java/configuration/RollerConfiguration.java	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
++++ /dev/null	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
+@@ -1,12 +0,0 @@
+-package com.xworkz.java.configuration;
+-
+-import org.springframework.context.annotation.ComponentScan;
+-import org.springframework.stereotype.Component;
+-
+-@Component
+-@ComponentScan("com.xworkz.java")
+-public class RollerConfiguration {
+-    public RollerConfiguration(){
+-        System.out.println("running in RollerConfiguration");
+-    }
+-}
+Index: ../../SpringPractice/src/main/java/com/xworkz/java/controller/RollerController.java
+===================================================================
+diff --git a/../../SpringPractice/src/main/java/com/xworkz/java/controller/RollerController.java b/../../SpringPractice/src/main/java/com/xworkz/java/controller/RollerController.java
+deleted file mode 100644
+--- a/../../SpringPractice/src/main/java/com/xworkz/java/controller/RollerController.java	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
++++ /dev/null	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
+@@ -1,22 +0,0 @@
+-package com.xworkz.java.controller;
+-
+-import com.xworkz.java.dto.RollerDTO;
+-import org.springframework.context.annotation.Configuration;
+-import org.springframework.stereotype.Component;
+-import org.springframework.ui.Model;
+-import org.springframework.web.bind.annotation.RequestMapping;
+-
+-@Component
+-@RequestMapping("/")
+-public class RollerController {
+-    public RollerController(){
+-        System.out.println("running in RollerController");
+-    }
+-    @RequestMapping("/submit")
+-    public String onSubmit(RollerDTO rollerDTO, Model model){
+-        System.out.println("onSubmit in RollerController");
+-        System.out.println(rollerDTO);
+-        model.addAttribute("rollerDTO",rollerDTO);
+-        return "RollerResult.jsp";
+-    }
+-}
+Index: ../../SpringPractice/BankingMangament/pom.xml
+===================================================================
+diff --git a/../../SpringPractice/BankingMangament/pom.xml b/../../SpringPractice/BankingMangament/pom.xml
+deleted file mode 100644
+--- a/../../SpringPractice/BankingMangament/pom.xml	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
++++ /dev/null	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
+@@ -1,38 +0,0 @@
+-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+-  <modelVersion>4.0.0</modelVersion>
+-  <groupId>com.xworkz</groupId>
+-  <artifactId>BankingMangament</artifactId>
+-  <packaging>war</packaging>
+-  <version>1.0-SNAPSHOT</version>
+-  <name>BankingMangament Maven Webapp</name>
+-  <url>http://maven.apache.org</url>
+-  <properties>
+-          <spring.version>5.2.12.RELEASE</spring.version>
+-  <servlet.version>3.1.0</servlet.version>
+-  </properties>
+-  <dependencies>
+-    <dependency>
+-      <groupId>junit</groupId>
+-      <artifactId>junit</artifactId>
+-      <version>3.8.1</version>
+-      <scope>test</scope>
+-    </dependency>
+-
+-    <dependency>
+-      <groupId>org.springframework</groupId>
+-      <artifactId>spring-webmvc</artifactId>
+-      <version>${spring.version}</version>
+-    </dependency>
+-
+-    <dependency>
+-      <groupId>javax.servlet</groupId>
+-      <artifactId>javax.servlet-api</artifactId>
+-      <version>${servlet.version}</version>
+-    </dependency>
+-
+-  </dependencies>
+-  <build>
+-    <finalName>BankingMangament</finalName>
+-  </build>
+-</project>
+Index: ../../SpringPractice/src/main/webapp/index.jsp
+===================================================================
+diff --git a/../../SpringPractice/src/main/webapp/index.jsp b/../../SpringPractice/src/main/webapp/index.jsp
+deleted file mode 100644
+--- a/../../SpringPractice/src/main/webapp/index.jsp	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
++++ /dev/null	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
+@@ -1,11 +0,0 @@
+-<html>
+-<body>
+-<h2>Hello World!</h2>
+-<a href="cardboard.jsp"/>
+-<button type="submit">Go To Cradboard</button>
+-<a href="Bucket.jsp"/>
+-<button type="submit">Go To Bucket</button>
+-<a href="Roller.jsp"/>
+-<button type="submit">Go To Roller</button>
+-</body>
+-</html>
+Index: ../../SpringPractice/src/main/webapp/cardboard.jsp
+===================================================================
+diff --git a/../../SpringPractice/src/main/webapp/cardboard.jsp b/../../SpringPractice/src/main/webapp/cardboard.jsp
+deleted file mode 100644
+--- a/../../SpringPractice/src/main/webapp/cardboard.jsp	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
++++ /dev/null	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
+@@ -1,14 +0,0 @@
+-<html>
+-<body>
+-<h2>Hello World!</h2>
+-<form action="saveboard" method="post">
+-    Type:<input type="text" name="type"><br><br>
+-    Size:<input type="number" name="size"><br><br>
+-    Quality:<input type="text" name="quality"><br><br>
+-    Quantity:<input type="number" name="quantity"><br><br>
+-    Color:<input type="text"name="color"><br><br>
+-    <button type="save">saveboard</button>
+-    <button type="store">store</button>
+-</form>
+-</body>
+-</html>
+Index: ../../Spring Practice/IceCreamApplication/src/main/java/com/xworkz/order/dto/OrderDTO.java
+===================================================================
+diff --git a/../../Spring Practice/IceCreamApplication/src/main/java/com/xworkz/order/dto/OrderDTO.java b/../../Spring Practice/IceCreamApplication/src/main/java/com/xworkz/order/dto/OrderDTO.java
+deleted file mode 100644
+--- a/../../Spring Practice/IceCreamApplication/src/main/java/com/xworkz/order/dto/OrderDTO.java	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
++++ /dev/null	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
+@@ -1,19 +0,0 @@
+-package com.xworkz.order.dto;
+-
+-import lombok.AllArgsConstructor;
+-import lombok.Getter;
+-import lombok.Setter;
+-import lombok.ToString;
+-
+-@Setter
+-@Getter
+-@ToString
+-@AllArgsConstructor
+-public class OrderDTO {
+-    private String name;
+-    private String flavour;
+-    private int quantity;
+-    private boolean takeAway;
+-    private boolean adsOn;
+-    private String couponCode;
+-}
+Index: ../../SpringPractice/src/main/webapp/Bucket.jsp
+===================================================================
+diff --git a/../../SpringPractice/src/main/webapp/Bucket.jsp b/../../SpringPractice/src/main/webapp/Bucket.jsp
+deleted file mode 100644
+--- a/../../SpringPractice/src/main/webapp/Bucket.jsp	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
++++ /dev/null	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
+@@ -1,16 +0,0 @@
+-<html>
+-<body>
+-<h2>Enter Bucket Details</h2>
+-<form action="give" method="post">
+-    Material: <input type="text" name="material" required><br><br>
+-    Color: <input type="text" name="color" required><br><br>
+-    Capacity (in liters): <input type="number" step="0.1" name="capacityInLiters" required><br><br>
+-    Price: <input type="number" step="0.01" name="price" required><br><br>
+-    Has Handle:
+-    <input type="radio" name="hasHandle" value="true" checked> Yes
+-    <input type="radio" name="hasHandle" value="false"> No<br><br>
+-
+-    <button type="submit">Save Bucket</button>
+-</form>
+-</body>
+-</html>
+Index: ../../SpringPractice/src/main/java/com/xworkz/java/dto/CardBoardDTO.java
+===================================================================
+diff --git a/../../SpringPractice/src/main/java/com/xworkz/java/dto/CardBoardDTO.java b/../../SpringPractice/src/main/java/com/xworkz/java/dto/CardBoardDTO.java
+deleted file mode 100644
+--- a/../../SpringPractice/src/main/java/com/xworkz/java/dto/CardBoardDTO.java	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
++++ /dev/null	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
+@@ -1,20 +0,0 @@
+-package com.xworkz.java.dto;
+-
+-import lombok.AllArgsConstructor;
+-import lombok.Getter;
+-import lombok.Setter;
+-import lombok.ToString;
+-
+-@ToString
+-@Setter
+-@Getter
+-@AllArgsConstructor
+-public class CardBoardDTO {
+-    private String type;
+-    private int size;
+-    private String quality;
+-    private int quantity;
+-    private String color;
+-
+-
+-}
+Index: ../../SpringPractice/src/main/webapp/Roller.jsp
+===================================================================
+diff --git a/../../SpringPractice/src/main/webapp/Roller.jsp b/../../SpringPractice/src/main/webapp/Roller.jsp
+deleted file mode 100644
+--- a/../../SpringPractice/src/main/webapp/Roller.jsp	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
++++ /dev/null	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
+@@ -1,16 +0,0 @@
+-<html>
+-<body>
+-<h2>Enter Roller Details</h2>
+-<form action="submit" method="post">
+-    Brand: <input type="text" name="brand" required><br><br>
+-    Color: <input type="text" name="color" required><br><br>
+-    Price: <input type="number" step="0.01" name="price" required><br><br>
+-    Soft Grip:
+-    <input type="radio" name="softGrip" value="true" checked> Yes
+-    <input type="radio" name="softGrip" value="false"> No<br><br>
+-    Material: <input type="text" name="material" required><br><br>
+-
+-    <button type="submit">Save Roller</button>
+-</form>
+-</body>
+-</html>
+Index: ../../SpringPractice/BankingMangament/src/main/webapp/index.jsp
+===================================================================
+diff --git a/../../SpringPractice/BankingMangament/src/main/webapp/index.jsp b/../../SpringPractice/BankingMangament/src/main/webapp/index.jsp
+deleted file mode 100644
+--- a/../../SpringPractice/BankingMangament/src/main/webapp/index.jsp	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
++++ /dev/null	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
+@@ -1,8 +0,0 @@
+-<html>
+-<body>
+-<h2>Hello World!</h2>
+-<form action="details">
+-    <button type="deatils">deatails</button>
+-</form>
+-</body>
+-</html>
+Index: ../../SpringPractice/src/main/java/com/xworkz/java/controller/BucketController.java
+===================================================================
+diff --git a/../../SpringPractice/src/main/java/com/xworkz/java/controller/BucketController.java b/../../SpringPractice/src/main/java/com/xworkz/java/controller/BucketController.java
+deleted file mode 100644
+--- a/../../SpringPractice/src/main/java/com/xworkz/java/controller/BucketController.java	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
++++ /dev/null	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
+@@ -1,21 +0,0 @@
+-package com.xworkz.java.controller;
+-
+-import com.xworkz.java.dto.BucketDTO;
+-import org.springframework.stereotype.Component;
+-import org.springframework.ui.Model;
+-import org.springframework.web.bind.annotation.RequestMapping;
+-
+-@Component
+-@RequestMapping("/")
+-public class BucketController {
+-    public BucketController(){
+-        System.out.println(" running in BucketController");
+-    }
+-    @RequestMapping("/give")
+-    public String onGive(BucketDTO bucketDTO, Model model){
+-        System.out.println("onGive in BucketController");
+-        System.out.println(bucketDTO);
+-        model.addAttribute("bucketDTO",bucketDTO);
+-        return "BucketResult.jsp";
+-    }
+-}
+Index: ../../SpringPractice/src/main/webapp/BucketResult.jsp
+===================================================================
+diff --git a/../../SpringPractice/src/main/webapp/BucketResult.jsp b/../../SpringPractice/src/main/webapp/BucketResult.jsp
+deleted file mode 100644
+--- a/../../SpringPractice/src/main/webapp/BucketResult.jsp	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
++++ /dev/null	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
+@@ -1,12 +0,0 @@
+-<%@ page isELIgnored="false" %>
+-<html>
+-<body>
+-<h2>Bucket Details Submitted Successfully!</h2>
+-
+-<p>Material: ${bucketDTO.material}</p>
+-<p>Color: ${bucketDTO.color}</p>
+-<p>Capacity (Liters): ${bucketDTO.capacityInLiters}</p>
+-<p>Price: ${bucketDTO.price}</p>
+-<p>Has Handle: ${bucketDTO.hasHandle}</p>
+-</body>
+-</html>
+Index: ../../SpringPractice/src/main/webapp/RollerResult.jsp
+===================================================================
+diff --git a/../../SpringPractice/src/main/webapp/RollerResult.jsp b/../../SpringPractice/src/main/webapp/RollerResult.jsp
+deleted file mode 100644
+--- a/../../SpringPractice/src/main/webapp/RollerResult.jsp	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
++++ /dev/null	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
+@@ -1,12 +0,0 @@
+-<%@ page isELIgnored="false" %>
+-<html>
+-<body>
+-<h2>Roller Details Submitted Successfully!</h2>
+-
+-<p>Brand: ${rollerDTO.brand}</p>
+-<p>Color: ${rollerDTO.color}</p>
+-<p>Price: ${rollerDTO.price}</p>
+-<p>Soft Grip: ${rollerDTO.softGrip}</p>
+-<p>Material: ${rollerDTO.material}</p>
+-</body>
+-</html>
+Index: ../../Spring Practice/IceCreamApplication/src/main/java/com/xworkz/order/service/OrderServiceImpl.java
+===================================================================
+diff --git a/../../Spring Practice/IceCreamApplication/src/main/java/com/xworkz/order/service/OrderServiceImpl.java b/../../Spring Practice/IceCreamApplication/src/main/java/com/xworkz/order/service/OrderServiceImpl.java
+deleted file mode 100644
+--- a/../../Spring Practice/IceCreamApplication/src/main/java/com/xworkz/order/service/OrderServiceImpl.java	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
++++ /dev/null	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
+@@ -1,21 +0,0 @@
+-package com.xworkz.order.service;
+-
+-import com.xworkz.order.dto.OrderDTO;
+-
+-public class OrderServiceImpl implements OrderService{
+-    public OrderServiceImpl(){
+-        System.out.println("Running in OrderServiceImpl");
+-    }
+-    @Override
+-    public boolean save(OrderDTO orderDTO) {
+-        if(orderDTO!=null){
+-            System.out.println("OrderDTO is not null");
+-            return true;
+-        }else{
+-            System.out.println("OrderDTO is null");
+-        }
+-        return false;
+-    }
+-
+-    
+-}
+Index: ../../SpringPractice/src/main/webapp/cardboardResult.jsp
+===================================================================
+diff --git a/../../SpringPractice/src/main/webapp/cardboardResult.jsp b/../../SpringPractice/src/main/webapp/cardboardResult.jsp
+deleted file mode 100644
+--- a/../../SpringPractice/src/main/webapp/cardboardResult.jsp	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
++++ /dev/null	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
+@@ -1,11 +0,0 @@
+-<%@ page isELIgnored="false" %>
+-<html>
+-<body>
+-<h2>Hello World!</h2>
+-<p>Type:${cardboardDTO.type}</p>
+-<p>Size:${cardboardDTO.size}</p>
+-<p>Quality:${cardboardDTO.quality}</p>
+-<p>Quantity:${cardboardDTO.quantity}</p>
+-<p>Color:${cardboardDTO.color}</p>
+-</body>
+-</html>
+Index: ../../Spring Practice/d-mart/src/main/java/com/xworkz/dmart/entity/ProductEntity.java
+===================================================================
+diff --git a/../../Spring Practice/d-mart/src/main/java/com/xworkz/dmart/entity/ProductEntity.java b/../../Spring Practice/d-mart/src/main/java/com/xworkz/dmart/entity/ProductEntity.java
+deleted file mode 100644
+--- a/../../Spring Practice/d-mart/src/main/java/com/xworkz/dmart/entity/ProductEntity.java	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
++++ /dev/null	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
+@@ -1,35 +0,0 @@
+-package com.xworkz.dmart.entity;
+-
+-import lombok.Getter;
+-import lombok.RequiredArgsConstructor;
+-import lombok.Setter;
+-import lombok.ToString;
+-import org.hibernate.annotations.GeneratorType;
+-
+-import javax.persistence.*;
+-
+-@Entity
+-@RequiredArgsConstructor
+-@Getter
+-@Setter
+-@ToString
+-@Table(name = "product_info")
+-public class ProductEntity {
+-    @Id
+-    @GeneratedValue(strategy = GenerationType.IDENTITY )
+-    @Column(name="product_id")
+-    private Integer product_id;
+-
+-    @Column(name="product_name")
+-    private String product_name;
+-
+-    @Column(name="product_price")
+-    private double product_price;
+-
+-    @Column(name="product_mdf")
+-    private String mdf;
+-
+-    @Column(name="product_company")
+-    private String company;
+-
+-}
+Index: ../../SpringPractice/src/main/java/com/xworkz/java/controller/CardBoardController.java
+===================================================================
+diff --git a/../../SpringPractice/src/main/java/com/xworkz/java/controller/CardBoardController.java b/../../SpringPractice/src/main/java/com/xworkz/java/controller/CardBoardController.java
+deleted file mode 100644
+--- a/../../SpringPractice/src/main/java/com/xworkz/java/controller/CardBoardController.java	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
++++ /dev/null	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
+@@ -1,25 +0,0 @@
+-package com.xworkz.java.controller;
+-
+-import com.xworkz.java.dto.CardBoardDTO;
+-import org.springframework.stereotype.Component;
+-import org.springframework.ui.Model;
+-import org.springframework.web.bind.annotation.RequestMapping;
+-
+-@Component
+-
+-public class CardBoardController {
+-    public CardBoardController(){
+-        System.out.println("running in CardBoardController ");
+-    }
+-    @RequestMapping("/saveboard")
+-    public String onSaveboard(CardBoardDTO cardBoardDTO, Model model){
+-        System.out.println("onSaveboard in CardBoardController");
+-        System.out.println(cardBoardDTO);
+-        model.addAttribute("cardboardDTO",cardBoardDTO);
+-        return "cardboardResult.jsp";
+-    }
+-    @RequestMapping("/store")
+-    public String onStore(){
+-        return "cardboard.jsp";
+-    }
+-}
+Index: ../../SpringPractice/BankingMangament/src/main/java/com/xworkz/bank/component/BankComponent.java
+===================================================================
+diff --git a/../../SpringPractice/BankingMangament/src/main/java/com/xworkz/bank/component/BankComponent.java b/../../SpringPractice/BankingMangament/src/main/java/com/xworkz/bank/component/BankComponent.java
+deleted file mode 100644
+--- a/../../SpringPractice/BankingMangament/src/main/java/com/xworkz/bank/component/BankComponent.java	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
++++ /dev/null	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
+@@ -1,10 +0,0 @@
+-package com.xworkz.bank.component;
+-
+-import org.springframework.stereotype.Component;
+-
+-@Component
+-public class BankComponent {
+-    public BankComponent(){
+-        System.out.println("running in BankComponent");
+-    }
+-}
+Index: ../../SpringPractice/src/main/webapp/WEB-INF/web.xml
+===================================================================
+diff --git a/../../SpringPractice/src/main/webapp/WEB-INF/web.xml b/../../SpringPractice/src/main/webapp/WEB-INF/web.xml
+deleted file mode 100644
+--- a/../../SpringPractice/src/main/webapp/WEB-INF/web.xml	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
++++ /dev/null	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
+@@ -1,7 +0,0 @@
+-<!DOCTYPE web-app PUBLIC
+- "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+- "http://java.sun.com/dtd/web-app_2_3.dtd" >
+-
+-<web-app>
+-  <display-name>Archetype Created Web Application</display-name>
+-</web-app>
+Index: ../../SpringPractice/src/main/java/com/xworkz/java/configuration/SpringInitializer.java
+===================================================================
+diff --git a/../../SpringPractice/src/main/java/com/xworkz/java/configuration/SpringInitializer.java b/../../SpringPractice/src/main/java/com/xworkz/java/configuration/SpringInitializer.java
+deleted file mode 100644
+--- a/../../SpringPractice/src/main/java/com/xworkz/java/configuration/SpringInitializer.java	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
++++ /dev/null	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
+@@ -1,22 +0,0 @@
+-package com.xworkz.java.configuration;
+-
+-import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+-
+-public class SpringInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
+-    @Override
+-    protected Class<?>[] getRootConfigClasses() {
+-        return new Class[0];
+-    }
+-
+-    @Override
+-    protected Class<?>[] getServletConfigClasses() {
+-        return new Class[]{CardBoardConfiguration.class, RollerConfiguration.class, BucketConfiguration.class};
+-    }
+-
+-    @Override
+-    protected String[] getServletMappings() {
+-        return new String[]{"/"};
+-    }
+-
+-
+-}
+Index: ../../Spring Practice/IceCreamApplication/pom.xml
+===================================================================
+diff --git a/../../Spring Practice/IceCreamApplication/pom.xml b/../../Spring Practice/IceCreamApplication/pom.xml
+deleted file mode 100644
+--- a/../../Spring Practice/IceCreamApplication/pom.xml	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
++++ /dev/null	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
+@@ -1,45 +0,0 @@
+-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+-  <modelVersion>4.0.0</modelVersion>
+-  <groupId>com.xworkz</groupId>
+-  <artifactId>IceCreamApplication</artifactId>
+-  <packaging>war</packaging>
+-  <version>1.0-SNAPSHOT</version>
+-  <name>IceCreamApplication Maven Webapp</name>
+-  <url>http://maven.apache.org</url>
+-  <properties>
+-    <spring.version>5.2.12.RELEASE</spring.version>
+-    <servlet.version>3.1.0</servlet.version>
+-  </properties>
+-  <dependencies>
+-    <dependency>
+-      <groupId>junit</groupId>
+-      <artifactId>junit</artifactId>
+-      <version>3.8.1</version>
+-      <scope>test</scope>
+-    </dependency>
+-    <dependency>
+-      <groupId>org.springframework</groupId>
+-      <artifactId>spring-webmvc</artifactId>
+-      <version>${spring.version}</version>
+-    </dependency>
+-    <dependency>
+-      <groupId>javax.servlet</groupId>
+-      <artifactId>javax.servlet-api</artifactId>
+-      <version>${servlet.version}</version>
+-    </dependency>
+-    <dependency>
+-      <groupId>org.apache.poi</groupId>
+-      <artifactId>poi</artifactId>
+-      <version>3.10-FINAL</version>
+-    </dependency>
+-    <dependency>
+-      <groupId>org.apache.poi</groupId>
+-      <artifactId>poi-ooxml</artifactId>
+-      <version>3.10-FINAL</version>
+-    </dependency>
+-  </dependencies>
+-  <build>
+-    <finalName>IceCreamApplication</finalName>
+-  </build>
+-</project>
+Index: ../../Spring Practice/IceCreamApplication/src/main/java/com/xworkz/order/controller/OrderController.java
+===================================================================
+diff --git a/../../Spring Practice/IceCreamApplication/src/main/java/com/xworkz/order/controller/OrderController.java b/../../Spring Practice/IceCreamApplication/src/main/java/com/xworkz/order/controller/OrderController.java
+deleted file mode 100644
+--- a/../../Spring Practice/IceCreamApplication/src/main/java/com/xworkz/order/controller/OrderController.java	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
++++ /dev/null	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
+@@ -1,24 +0,0 @@
+-package com.xworkz.order.controller;
+-
+-import com.xworkz.order.dto.OrderDTO;
+-import com.xworkz.order.service.OrderService;
+-import org.springframework.beans.factory.annotation.Autowired;
+-import org.springframework.stereotype.Controller;
+-import org.springframework.ui.Model;
+-import org.springframework.web.bind.annotation.RequestMapping;
+-@Controller
+-@RequestMapping("/")
+-public class OrderController {
+-    @Autowired
+-    private OrderService orderService;
+-public OrderController(){
+-    System.out.println("Running in OrderController");
+-}
+-    @RequestMapping("/ordered")
+-    public String onOrdered(OrderDTO orderDTO, Model model){
+-        System.out.println("onOrdered in OrderController");
+-        System.out.println(orderDTO);
+-        model.addAttribute("orderDTO",orderDTO);
+-        return "Ordersuccess.jsp";
+-    }
+-}
+Index: ../../Spring Practice/d-mart/src/main/java/com/xworkz/dmart/entity/ProductRunner.java
+===================================================================
+diff --git a/../../Spring Practice/d-mart/src/main/java/com/xworkz/dmart/entity/ProductRunner.java b/../../Spring Practice/d-mart/src/main/java/com/xworkz/dmart/entity/ProductRunner.java
+deleted file mode 100644
+--- a/../../Spring Practice/d-mart/src/main/java/com/xworkz/dmart/entity/ProductRunner.java	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
++++ /dev/null	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
+@@ -1,17 +0,0 @@
+-package com.xworkz.dmart.entity;
+-
+-import javax.persistence.EntityManager;
+-import javax.persistence.EntityManagerFactory;
+-import javax.persistence.EntityTransaction;
+-
+-
+-import static javax.persistence.Persistence.createEntityManagerFactory;
+-
+-public class ProductRunner {
+-    public static void main(String[] args) {
+-        EntityManagerFactory entityManagerFactory= createEntityManagerFactory("x-workz");
+-        EntityManager entityManager=   entityManagerFactory.createEntityManager();
+-        EntityTransaction entityTransaction=
+-
+-    }
+-}
+Index: ../../Spring Practice/IceCreamApplication/src/main/java/com/xworkz/order/configuration/OrderInitializer.java
+===================================================================
+diff --git a/../../Spring Practice/IceCreamApplication/src/main/java/com/xworkz/order/configuration/OrderInitializer.java b/../../Spring Practice/IceCreamApplication/src/main/java/com/xworkz/order/configuration/OrderInitializer.java
+deleted file mode 100644
+--- a/../../Spring Practice/IceCreamApplication/src/main/java/com/xworkz/order/configuration/OrderInitializer.java	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
++++ /dev/null	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
+@@ -1,31 +0,0 @@
+-package com.xworkz.order.configuration;
+-
+-import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
+-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+-import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+-
+-public class OrderInitializer extends AbstractAnnotationConfigDispatcherServletInitializer implements WebMvcConfigurer {
+-public OrderInitializer(){
+-    System.out.println(" Running in OrderInitializer");
+-}
+-    @Override
+-    protected Class<?>[] getRootConfigClasses() {
+-        return new Class[0];
+-    }
+-
+-    @Override
+-    protected Class<?>[] getServletConfigClasses() {
+-        return new Class[]{OrderConfiguration.class};
+-    }
+-
+-    @Override
+-    protected String[] getServletMappings() {
+-        return new String[]{"/"};
+-    }
+-
+-    @Override
+-    public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
+-        System.out.println("configureDefaultServletHandling");
+-        configurer.enable();
+-    }
+-}
+Index: ../../Spring Practice/IceCreamApplication/src/main/webapp/Ordersuccess.jsp
+===================================================================
+diff --git a/../../Spring Practice/IceCreamApplication/src/main/webapp/Ordersuccess.jsp b/../../Spring Practice/IceCreamApplication/src/main/webapp/Ordersuccess.jsp
+deleted file mode 100644
+--- a/../../Spring Practice/IceCreamApplication/src/main/webapp/Ordersuccess.jsp	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
++++ /dev/null	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
+@@ -1,7 +0,0 @@
+-<html>
+-<body>
+-<h2>Hello World!</h2>
+-<p>${orderDTO.name}</p>
+-<p>${orderDTO.total}</p>
+-</body>
+-</html>
+Index: ../../SpringPractice/src/main/java/com/xworkz/java/dto/BucketDTO.java
+===================================================================
+diff --git a/../../SpringPractice/src/main/java/com/xworkz/java/dto/BucketDTO.java b/../../SpringPractice/src/main/java/com/xworkz/java/dto/BucketDTO.java
+deleted file mode 100644
+--- a/../../SpringPractice/src/main/java/com/xworkz/java/dto/BucketDTO.java	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
++++ /dev/null	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
+@@ -1,19 +0,0 @@
+-package com.xworkz.java.dto;
+-
+-import lombok.AllArgsConstructor;
+-import lombok.Getter;
+-import lombok.Setter;
+-import lombok.ToString;
+-
+-@Setter
+-@Getter
+-@ToString
+-@AllArgsConstructor
+-public class BucketDTO {
+-    private String material;
+-    private String color;
+-    private double capacityInLiters;
+-    private double price;
+-    private boolean hasHandle;
+-
+-}
+Index: ../../SpringPractice/BankingMangament/src/main/java/com/xworkz/bank/controller/BankController.java
+===================================================================
+diff --git a/../../SpringPractice/BankingMangament/src/main/java/com/xworkz/bank/controller/BankController.java b/../../SpringPractice/BankingMangament/src/main/java/com/xworkz/bank/controller/BankController.java
+deleted file mode 100644
+--- a/../../SpringPractice/BankingMangament/src/main/java/com/xworkz/bank/controller/BankController.java	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
++++ /dev/null	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
+@@ -1,17 +0,0 @@
+-package com.xworkz.bank.controller;
+-
+-import org.springframework.stereotype.Component;
+-import org.springframework.web.bind.annotation.RequestMapping;
+-
+-@Component
+-@RequestMapping("/")
+-public class BankController {
+-    public BankController(){
+-        System.out.println("running in BankController");
+-    }
+-    @RequestMapping("/deatils")
+-    public String onDetails(){
+-        System.out.println("onDetails in BankController");
+-        return "index.jsp";
+-    }
+-}
+Index: ../../SpringPractice/src/main/java/com/xworkz/java/dto/RollerDTO.java
+===================================================================
+diff --git a/../../SpringPractice/src/main/java/com/xworkz/java/dto/RollerDTO.java b/../../SpringPractice/src/main/java/com/xworkz/java/dto/RollerDTO.java
+deleted file mode 100644
+--- a/../../SpringPractice/src/main/java/com/xworkz/java/dto/RollerDTO.java	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
++++ /dev/null	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
+@@ -1,18 +0,0 @@
+-package com.xworkz.java.dto;
+-
+-import lombok.AllArgsConstructor;
+-import lombok.Getter;
+-import lombok.Setter;
+-import lombok.ToString;
+-
+-@Getter
+-@Setter
+-@AllArgsConstructor
+-@ToString
+-public class RollerDTO {
+-    private String brand;
+-    private String color;
+-    private double price;
+-    private boolean softGrip;
+-    private String material;
+-}
+Index: ../../Spring Practice/IceCreamApplication/src/main/webapp/Order.jsp
+===================================================================
+diff --git a/../../Spring Practice/IceCreamApplication/src/main/webapp/Order.jsp b/../../Spring Practice/IceCreamApplication/src/main/webapp/Order.jsp
+deleted file mode 100644
+--- a/../../Spring Practice/IceCreamApplication/src/main/webapp/Order.jsp	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
++++ /dev/null	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
+@@ -1,11 +0,0 @@
+-<html>
+-<body>
+-<h2>Hello World!</h2>
+-<form action="save" method="post">
+-    Name:<input type="text" placeholder="Enter Name" name="name">
+-    Flavour:<input type="text" placeholder="Add Flavour" name="flavour">
+-    Quantity:<input type="number" placeholder="Enter Quantity" name="quantity">
+-    Takeanyway;<input type="checkbox" placeholder="">
+-</form>
+-</body>
+-</html>
+Index: ../../Spring Practice/Train/.idea/encodings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../../Spring Practice/Train/.idea/encodings.xml b/../../Spring Practice/Train/.idea/encodings.xml
+new file mode 100644
+--- /dev/null	(date 1754069768636)
++++ b/../../Spring Practice/Train/.idea/encodings.xml	(date 1754069768636)
+@@ -0,0 +1,7 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="Encoding">
++    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
++    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
++  </component>
++</project>
+\ No newline at end of file
+Index: ../../Spring Practice/Train/.idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../../Spring Practice/Train/.idea/misc.xml b/../../Spring Practice/Train/.idea/misc.xml
+new file mode 100644
+--- /dev/null	(date 1754069768601)
++++ b/../../Spring Practice/Train/.idea/misc.xml	(date 1754069768601)
+@@ -0,0 +1,14 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ExternalStorageConfigurationManager" enabled="true" />
++  <component name="MavenProjectsManager">
++    <option name="originalFiles">
++      <list>
++        <option value="$PROJECT_DIR$/pom.xml" />
++      </list>
++    </option>
++  </component>
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
++    <output url="file://$PROJECT_DIR$/out" />
++  </component>
++</project>
+\ No newline at end of file
+Index: ../../Juice/Juice.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../../Juice/Juice.iml b/../../Juice/Juice.iml
+new file mode 100644
+--- /dev/null	(date 1753611173783)
++++ b/../../Juice/Juice.iml	(date 1753611173783)
+@@ -0,0 +1,11 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module type="JAVA_MODULE" version="4">
++  <component name="NewModuleRootManager" inherit-compiler-output="true">
++    <exclude-output />
++    <content url="file://$MODULE_DIR$">
++      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
++    </content>
++    <orderEntry type="inheritedJdk" />
++    <orderEntry type="sourceFolder" forTests="false" />
++  </component>
++</module>
+\ No newline at end of file
+Index: ../../backup-untracked/megha/megha.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../../backup-untracked/megha/megha.iml b/../../backup-untracked/megha/megha.iml
+new file mode 100644
+--- /dev/null	(date 1753615673524)
++++ b/../../backup-untracked/megha/megha.iml	(date 1753615673524)
+@@ -0,0 +1,11 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module type="JAVA_MODULE" version="4">
++  <component name="NewModuleRootManager" inherit-compiler-output="true">
++    <exclude-output />
++    <content url="file://$MODULE_DIR$">
++      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
++    </content>
++    <orderEntry type="inheritedJdk" />
++    <orderEntry type="sourceFolder" forTests="false" />
++  </component>
++</module>
+\ No newline at end of file
+Index: .idea/encodings.xml
+===================================================================
+diff --git a/.idea/encodings.xml b/.idea/encodings.xml
+new file mode 100644
+--- /dev/null	(date 1754110857179)
++++ b/.idea/encodings.xml	(date 1754110857179)
+@@ -0,0 +1,7 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="Encoding">
++    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
++    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
++  </component>
++</project>
+\ No newline at end of file
+Index: ../../Spring Practice/Train/src/main/java/com/xworkz/train/runner/TrainUpdate.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../../Spring Practice/Train/src/main/java/com/xworkz/train/runner/TrainUpdate.java b/../../Spring Practice/Train/src/main/java/com/xworkz/train/runner/TrainUpdate.java
+new file mode 100644
+--- /dev/null	(date 1754070891551)
++++ b/../../Spring Practice/Train/src/main/java/com/xworkz/train/runner/TrainUpdate.java	(date 1754070891551)
+@@ -0,0 +1,39 @@
++package com.xworkz.train.runner;
++
++import com.xworkz.train.entity.TrainEntity;
++
++import javax.persistence.*;
++
++public class TrainUpdate {
++    public static void main(String[] args) {
++        EntityManagerFactory entityManagerFactory = null;
++        EntityManager entityManager = null;
++        EntityTransaction entityTransaction = null;
++
++        try {
++            entityManagerFactory = Persistence.createEntityManagerFactory("x-workz");//Load,Register,connection driver
++            entityManager = entityManagerFactory.createEntityManager();//DMl(Upadte,Delete,Insert),DQL(Select)
++            entityTransaction = entityManager.getTransaction();//TCL(Transaction Control Language(commit,rollback,savepoint,autocommit)
++
++            entityTransaction.begin();//auto commit=0 (temp)
++            TrainEntity trainEntity=entityManager.find(TrainEntity.class,1);
++            entityManager.persist(trainEntity);
++            System.out.println(trainEntity);
++            System.out.println("connected");
++            entityTransaction.commit();//auto commit=1 (permanent)
++            System.out.println("Read Data");
++
++        } catch (PersistenceException e) {
++            e.printStackTrace();
++        } finally {
++            if (entityManagerFactory != null) {
++                System.out.println("entityManagerFactory");
++                entityManagerFactory.close();
++            }
++            if (entityManager!=null){
++                System.out.println("entityManager");
++                entityManager.close();
++            }
++        }
++    }
++}
+Index: ../../testing/testing.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../../testing/testing.iml b/../../testing/testing.iml
+new file mode 100644
+--- /dev/null	(date 1753614841589)
++++ b/../../testing/testing.iml	(date 1753614841589)
+@@ -0,0 +1,14 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module type="JAVA_MODULE" version="4">
++  <component name="NewModuleRootManager" inherit-compiler-output="true">
++    <exclude-output />
++    <content url="file://$MODULE_DIR$">
++      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
++    </content>
++    <orderEntry type="inheritedJdk" />
++    <orderEntry type="sourceFolder" forTests="false" />
++    <orderEntry type="library" name="lombok (1)" level="project" />
++    <orderEntry type="library" name="servlet-api" level="project" />
++    <orderEntry type="library" name="mysql-connector-j-8.0.33" level="project" />
++  </component>
++</module>
+\ No newline at end of file
+Index: .idea/vcs.xml
+===================================================================
+diff --git a/.idea/vcs.xml b/.idea/vcs.xml
+new file mode 100644
+--- /dev/null	(date 1754110857221)
++++ b/.idea/vcs.xml	(date 1754110857221)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="$PROJECT_DIR$/../.." vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/misc.xml
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+new file mode 100644
+--- /dev/null	(date 1754110618054)
++++ b/.idea/misc.xml	(date 1754110618054)
+@@ -0,0 +1,14 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ExternalStorageConfigurationManager" enabled="true" />
++  <component name="MavenProjectsManager">
++    <option name="originalFiles">
++      <list>
++        <option value="$PROJECT_DIR$/pom.xml" />
++      </list>
++    </option>
++  </component>
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
++    <output url="file://$PROJECT_DIR$/out" />
++  </component>
++</project>
+\ No newline at end of file
+Index: ../../hi/hi.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../../hi/hi.iml b/../../hi/hi.iml
+new file mode 100644
+--- /dev/null	(date 1753605319158)
++++ b/../../hi/hi.iml	(date 1753605319158)
+@@ -0,0 +1,25 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module type="JAVA_MODULE" version="4">
++  <component name="FacetManager">
++    <facet type="kotlin-language" name="Kotlin">
++      <configuration version="5" platform="JVM 9" allPlatforms="JVM [9]" useProjectSettings="false">
++        <compilerSettings />
++        <compilerArguments>
++          <stringArguments>
++            <stringArg name="jvmTarget" arg="9" />
++            <stringArg name="apiVersion" arg="2.2" />
++            <stringArg name="languageVersion" arg="2.2" />
++          </stringArguments>
++        </compilerArguments>
++      </configuration>
++    </facet>
++  </component>
++  <component name="NewModuleRootManager" inherit-compiler-output="true">
++    <exclude-output />
++    <content url="file://$MODULE_DIR$">
++      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
++    </content>
++    <orderEntry type="inheritedJdk" />
++    <orderEntry type="sourceFolder" forTests="false" />
++  </component>
++</module>
+\ No newline at end of file
+Index: ../../Spring Practice/Train/src/main/resources/META-INF/persistence.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../../Spring Practice/Train/src/main/resources/META-INF/persistence.xml b/../../Spring Practice/Train/src/main/resources/META-INF/persistence.xml
+new file mode 100644
+--- /dev/null	(date 1754069843196)
++++ b/../../Spring Practice/Train/src/main/resources/META-INF/persistence.xml	(date 1754069843196)
+@@ -0,0 +1,10 @@
++<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
++    <persistence-unit name="x-workz">
++        <properties>
++            <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
++            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/train_details"/>
++            <property name="javax.persistence.jdbc.user" value="root"/>
++            <property name="javax.persistence.jdbc.password" value="Meghna@8122002"/>
++        </properties>
++    </persistence-unit>
++</persistence>
+\ No newline at end of file
+Index: ../../D-mart/src/main/java/com/xworkz/dmart/entity/ProductEntity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.xworkz.dmart.entity;\r\n\r\nimport lombok.Getter;\r\nimport lombok.RequiredArgsConstructor;\r\nimport lombok.Setter;\r\nimport lombok.ToString;\r\n\r\nimport javax.persistence.*;\r\n\r\n@Entity\r\n@Getter\r\n@Setter\r\n@RequiredArgsConstructor\r\n@Table(name=\"product_info\")\r\n@ToString\r\npublic class ProductEntity {\r\n    @Id\r\n    @GeneratedValue(strategy = GenerationType.IDENTITY)\r\n    @Column(name = \"product_id\")\r\n    private Integer id;\r\n\r\n    @Column(name = \"product_name\")\r\n    private String productName;\r\n\r\n    @Column(name = \"product_price\")\r\n    private Double price;\r\n\r\n    @Column(name = \"product_mfd\")\r\n    private  String mfd;\r\n\r\n    @Column(name = \"product_company\")\r\n    private String company;\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../../D-mart/src/main/java/com/xworkz/dmart/entity/ProductEntity.java b/../../D-mart/src/main/java/com/xworkz/dmart/entity/ProductEntity.java
+--- a/../../D-mart/src/main/java/com/xworkz/dmart/entity/ProductEntity.java	(revision 76c71eb4d88fc1777d4d495f715823663ac89e4c)
++++ b/../../D-mart/src/main/java/com/xworkz/dmart/entity/ProductEntity.java	(date 1754066170554)
+@@ -6,13 +6,12 @@
+ import lombok.ToString;
+ 
+ import javax.persistence.*;
+-
++@ToString
+ @Entity
+ @Getter
+ @Setter
+ @RequiredArgsConstructor
+ @Table(name="product_info")
+-@ToString
+ public class ProductEntity {
+     @Id
+     @GeneratedValue(strategy = GenerationType.IDENTITY)

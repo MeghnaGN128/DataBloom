@@ -1,0 +1,401 @@
+Index: ../../Spring Practice/applicationmanagement/src/main/java/com/xworkz/application/repository/ApplicationRepositortImpl.java
+===================================================================
+diff --git a/../../Spring Practice/applicationmanagement/src/main/java/com/xworkz/application/repository/ApplicationRepositortImpl.java b/../../Spring Practice/applicationmanagement/src/main/java/com/xworkz/application/repository/ApplicationRepositortImpl.java
+deleted file mode 100644
+--- a/../../Spring Practice/applicationmanagement/src/main/java/com/xworkz/application/repository/ApplicationRepositortImpl.java	(revision 12d34ff1bc97963629b0b96446d5f5ea7865fad3)
++++ /dev/null	(revision 12d34ff1bc97963629b0b96446d5f5ea7865fad3)
+@@ -1,85 +0,0 @@
+-package com.xworkz.application.repository;
+-
+-import com.xworkz.application.entity.ApplicationEntity;
+-
+-import javax.persistence.*;
+-import java.util.Optional;
+-
+-public class ApplicationRepositortImpl implements ApplicationRepository {
+-    public ApplicationRepositortImpl() {
+-        System.out.println("running in ApplicationRepositortImpl");
+-    }
+-
+-    @Override
+-    public boolean saveApplication(ApplicationEntity applicationEntity) {
+-        System.out.println("running in saveApplication");
+-        EntityManagerFactory entityManagerFactory = null;
+-        EntityManager entityManager = null;
+-        EntityTransaction entityTransaction = null;
+-
+-        try {
+-            entityManagerFactory = Persistence.createEntityManagerFactory("x-workz");
+-            entityManager = entityManagerFactory.createEntityManager();
+-            entityTransaction = entityManager.getTransaction();
+-
+-            entityManager.getTransaction().begin();
+-            entityManager.persist(applicationEntity);
+-            entityManager.getTransaction().commit();
+-            System.out.println("Insertion completed");
+-        } catch (PersistenceException e) {
+-            e.printStackTrace();
+-            if (entityTransaction != null) {
+-                entityTransaction.rollback();
+-                System.out.println("rollback");
+-                return false;
+-            }
+-        } finally {
+-            if (entityManagerFactory != null) {
+-                entityManagerFactory.close();
+-            }
+-            if (entityManager != null) {
+-                entityManager.close();
+-
+-            }
+-        }
+-        return true;
+-    }
+-
+-    @Override
+-    public Optional<ApplicationEntity> findById(int id) {
+-        EntityManagerFactory entityManagerFactory = null;
+-        EntityManager entityManager = null;
+-        ApplicationEntity applicationEntity = null;
+-        try {
+-            entityManagerFactory = Persistence.createEntityManagerFactory("x-workz");
+-            entityManager = entityManagerFactory.createEntityManager();
+-            applicationEntity = entityManager.find(ApplicationEntity.class, id);
+-            if (applicationEntity != null) {
+-                System.out.println("Id is found");
+-            }
+-        } catch (PersistenceException e) {
+-            e.printStackTrace();
+-        }
+-    }finally{
+-        if (entityManagerFactory != null) {
+-            entityManagerFactory.close();
+-        }
+-        if (entityManager != null) {
+-            entityManager.close();
+-
+-        }
+-    }
+-        return applicationEntity == null ? Optional.empty() : Optional.of(applicationEntity);
+-}
+-
+-@Override
+-public boolean deleteById(int id) {
+-    return false;
+-}
+-
+-@Override
+-public boolean updateById(int id, String company) {
+-    return false;
+-}
+-
+-}
+Index: ../../Spring Practice/d-mart/src/main/java/com/xworkz/dmart/entity/ProductEntity.java
+===================================================================
+diff --git a/../../Spring Practice/d-mart/src/main/java/com/xworkz/dmart/entity/ProductEntity.java b/../../Spring Practice/d-mart/src/main/java/com/xworkz/dmart/entity/ProductEntity.java
+deleted file mode 100644
+--- a/../../Spring Practice/d-mart/src/main/java/com/xworkz/dmart/entity/ProductEntity.java	(revision 12d34ff1bc97963629b0b96446d5f5ea7865fad3)
++++ /dev/null	(revision 12d34ff1bc97963629b0b96446d5f5ea7865fad3)
+@@ -1,35 +0,0 @@
+-package com.xworkz.dmart.entity;
+-
+-import lombok.Getter;
+-import lombok.RequiredArgsConstructor;
+-import lombok.Setter;
+-import lombok.ToString;
+-import org.hibernate.annotations.GeneratorType;
+-
+-import javax.persistence.*;
+-
+-@Entity
+-@RequiredArgsConstructor
+-@Getter
+-@Setter
+-@ToString
+-@Table(name = "product_info")
+-public class ProductEntity {
+-    @Id
+-    @GeneratedValue(strategy = GenerationType.IDENTITY )
+-    @Column(name="product_id")
+-    private Integer product_id;
+-
+-    @Column(name="product_name")
+-    private String product_name;
+-
+-    @Column(name="product_price")
+-    private double product_price;
+-
+-    @Column(name="product_mdf")
+-    private String mdf;
+-
+-    @Column(name="product_company")
+-    private String company;
+-
+-}
+Index: ../../Spring Practice/d-mart/src/main/java/com/xworkz/dmart/entity/ProductRunner.java
+===================================================================
+diff --git a/../../Spring Practice/d-mart/src/main/java/com/xworkz/dmart/entity/ProductRunner.java b/../../Spring Practice/d-mart/src/main/java/com/xworkz/dmart/entity/ProductRunner.java
+deleted file mode 100644
+--- a/../../Spring Practice/d-mart/src/main/java/com/xworkz/dmart/entity/ProductRunner.java	(revision 12d34ff1bc97963629b0b96446d5f5ea7865fad3)
++++ /dev/null	(revision 12d34ff1bc97963629b0b96446d5f5ea7865fad3)
+@@ -1,17 +0,0 @@
+-package com.xworkz.dmart.entity;
+-
+-import javax.persistence.EntityManager;
+-import javax.persistence.EntityManagerFactory;
+-import javax.persistence.EntityTransaction;
+-
+-
+-import static javax.persistence.Persistence.createEntityManagerFactory;
+-
+-public class ProductRunner {
+-    public static void main(String[] args) {
+-        EntityManagerFactory entityManagerFactory= createEntityManagerFactory("x-workz");
+-        EntityManager entityManager=   entityManagerFactory.createEntityManager();
+-        EntityTransaction entityTransaction=
+-
+-    }
+-}
+Index: ../../Spring Practice/Train/.idea/encodings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../../Spring Practice/Train/.idea/encodings.xml b/../../Spring Practice/Train/.idea/encodings.xml
+new file mode 100644
+--- /dev/null	(date 1754150954652)
++++ b/../../Spring Practice/Train/.idea/encodings.xml	(date 1754150954652)
+@@ -0,0 +1,7 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="Encoding">
++    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
++    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
++  </component>
++</project>
+\ No newline at end of file
+Index: ../../backup-untracked/megha/megha.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../../backup-untracked/megha/megha.iml b/../../backup-untracked/megha/megha.iml
+new file mode 100644
+--- /dev/null	(date 1754150954685)
++++ b/../../backup-untracked/megha/megha.iml	(date 1754150954685)
+@@ -0,0 +1,11 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module type="JAVA_MODULE" version="4">
++  <component name="NewModuleRootManager" inherit-compiler-output="true">
++    <exclude-output />
++    <content url="file://$MODULE_DIR$">
++      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
++    </content>
++    <orderEntry type="inheritedJdk" />
++    <orderEntry type="sourceFolder" forTests="false" />
++  </component>
++</module>
+\ No newline at end of file
+Index: ../../Spring Practice/Train/.idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../../Spring Practice/Train/.idea/misc.xml b/../../Spring Practice/Train/.idea/misc.xml
+new file mode 100644
+--- /dev/null	(date 1754150954664)
++++ b/../../Spring Practice/Train/.idea/misc.xml	(date 1754150954664)
+@@ -0,0 +1,14 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ExternalStorageConfigurationManager" enabled="true" />
++  <component name="MavenProjectsManager">
++    <option name="originalFiles">
++      <list>
++        <option value="$PROJECT_DIR$/pom.xml" />
++      </list>
++    </option>
++  </component>
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
++    <output url="file://$PROJECT_DIR$/out" />
++  </component>
++</project>
+\ No newline at end of file
+Index: ../../Juice/Juice.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../../Juice/Juice.iml b/../../Juice/Juice.iml
+new file mode 100644
+--- /dev/null	(date 1754150954676)
++++ b/../../Juice/Juice.iml	(date 1754150954676)
+@@ -0,0 +1,11 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module type="JAVA_MODULE" version="4">
++  <component name="NewModuleRootManager" inherit-compiler-output="true">
++    <exclude-output />
++    <content url="file://$MODULE_DIR$">
++      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
++    </content>
++    <orderEntry type="inheritedJdk" />
++    <orderEntry type="sourceFolder" forTests="false" />
++  </component>
++</module>
+\ No newline at end of file
+Index: ../../Spring Practice/Train/src/main/java/com/xworkz/train/runner/TrainUpdate.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../../Spring Practice/Train/src/main/java/com/xworkz/train/runner/TrainUpdate.java b/../../Spring Practice/Train/src/main/java/com/xworkz/train/runner/TrainUpdate.java
+new file mode 100644
+--- /dev/null	(date 1754150954704)
++++ b/../../Spring Practice/Train/src/main/java/com/xworkz/train/runner/TrainUpdate.java	(date 1754150954704)
+@@ -0,0 +1,39 @@
++package com.xworkz.train.runner;
++
++import com.xworkz.train.entity.TrainEntity;
++
++import javax.persistence.*;
++
++public class TrainUpdate {
++    public static void main(String[] args) {
++        EntityManagerFactory entityManagerFactory = null;
++        EntityManager entityManager = null;
++        EntityTransaction entityTransaction = null;
++
++        try {
++            entityManagerFactory = Persistence.createEntityManagerFactory("x-workz");//Load,Register,connection driver
++            entityManager = entityManagerFactory.createEntityManager();//DMl(Upadte,Delete,Insert),DQL(Select)
++            entityTransaction = entityManager.getTransaction();//TCL(Transaction Control Language(commit,rollback,savepoint,autocommit)
++
++            entityTransaction.begin();//auto commit=0 (temp)
++            TrainEntity trainEntity=entityManager.find(TrainEntity.class,1);
++            entityManager.persist(trainEntity);
++            System.out.println(trainEntity);
++            System.out.println("connected");
++            entityTransaction.commit();//auto commit=1 (permanent)
++            System.out.println("Read Data");
++
++        } catch (PersistenceException e) {
++            e.printStackTrace();
++        } finally {
++            if (entityManagerFactory != null) {
++                System.out.println("entityManagerFactory");
++                entityManagerFactory.close();
++            }
++            if (entityManager!=null){
++                System.out.println("entityManager");
++                entityManager.close();
++            }
++        }
++    }
++}
+Index: ../../testing/testing.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../../testing/testing.iml b/../../testing/testing.iml
+new file mode 100644
+--- /dev/null	(date 1754150954715)
++++ b/../../testing/testing.iml	(date 1754150954715)
+@@ -0,0 +1,14 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module type="JAVA_MODULE" version="4">
++  <component name="NewModuleRootManager" inherit-compiler-output="true">
++    <exclude-output />
++    <content url="file://$MODULE_DIR$">
++      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
++    </content>
++    <orderEntry type="inheritedJdk" />
++    <orderEntry type="sourceFolder" forTests="false" />
++    <orderEntry type="library" name="lombok (1)" level="project" />
++    <orderEntry type="library" name="servlet-api" level="project" />
++    <orderEntry type="library" name="mysql-connector-j-8.0.33" level="project" />
++  </component>
++</module>
+\ No newline at end of file
+Index: ../../Spring Practice/Train/src/main/resources/META-INF/persistence.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../../Spring Practice/Train/src/main/resources/META-INF/persistence.xml b/../../Spring Practice/Train/src/main/resources/META-INF/persistence.xml
+new file mode 100644
+--- /dev/null	(date 1754150954754)
++++ b/../../Spring Practice/Train/src/main/resources/META-INF/persistence.xml	(date 1754150954754)
+@@ -0,0 +1,10 @@
++<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
++    <persistence-unit name="x-workz">
++        <properties>
++            <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
++            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/train_details"/>
++            <property name="javax.persistence.jdbc.user" value="root"/>
++            <property name="javax.persistence.jdbc.password" value="Meghna@8122002"/>
++        </properties>
++    </persistence-unit>
++</persistence>
+\ No newline at end of file
+Index: ../../D-mart/src/main/java/com/xworkz/dmart/entity/ProductEntity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.xworkz.dmart.entity;\r\n\r\nimport lombok.Getter;\r\nimport lombok.RequiredArgsConstructor;\r\nimport lombok.Setter;\r\nimport lombok.ToString;\r\n\r\nimport javax.persistence.*;\r\n\r\n@Entity\r\n@Getter\r\n@Setter\r\n@RequiredArgsConstructor\r\n@Table(name=\"product_info\")\r\n@ToString\r\npublic class ProductEntity {\r\n    @Id\r\n    @GeneratedValue(strategy = GenerationType.IDENTITY)\r\n    @Column(name = \"product_id\")\r\n    private Integer id;\r\n\r\n    @Column(name = \"product_name\")\r\n    private String productName;\r\n\r\n    @Column(name = \"product_price\")\r\n    private Double price;\r\n\r\n    @Column(name = \"product_mfd\")\r\n    private  String mfd;\r\n\r\n    @Column(name = \"product_company\")\r\n    private String company;\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../../D-mart/src/main/java/com/xworkz/dmart/entity/ProductEntity.java b/../../D-mart/src/main/java/com/xworkz/dmart/entity/ProductEntity.java
+--- a/../../D-mart/src/main/java/com/xworkz/dmart/entity/ProductEntity.java	(revision 12d34ff1bc97963629b0b96446d5f5ea7865fad3)
++++ b/../../D-mart/src/main/java/com/xworkz/dmart/entity/ProductEntity.java	(date 1754150954770)
+@@ -6,13 +6,12 @@
+ import lombok.ToString;
+ 
+ import javax.persistence.*;
+-
++@ToString
+ @Entity
+ @Getter
+ @Setter
+ @RequiredArgsConstructor
+ @Table(name="product_info")
+-@ToString
+ public class ProductEntity {
+     @Id
+     @GeneratedValue(strategy = GenerationType.IDENTITY)
+Index: ../../hi/hi.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../../hi/hi.iml b/../../hi/hi.iml
+new file mode 100644
+--- /dev/null	(date 1754150954744)
++++ b/../../hi/hi.iml	(date 1754150954744)
+@@ -0,0 +1,25 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module type="JAVA_MODULE" version="4">
++  <component name="FacetManager">
++    <facet type="kotlin-language" name="Kotlin">
++      <configuration version="5" platform="JVM 9" allPlatforms="JVM [9]" useProjectSettings="false">
++        <compilerSettings />
++        <compilerArguments>
++          <stringArguments>
++            <stringArg name="jvmTarget" arg="9" />
++            <stringArg name="apiVersion" arg="2.2" />
++            <stringArg name="languageVersion" arg="2.2" />
++          </stringArguments>
++        </compilerArguments>
++      </configuration>
++    </facet>
++  </component>
++  <component name="NewModuleRootManager" inherit-compiler-output="true">
++    <exclude-output />
++    <content url="file://$MODULE_DIR$">
++      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
++    </content>
++    <orderEntry type="inheritedJdk" />
++    <orderEntry type="sourceFolder" forTests="false" />
++  </component>
++</module>
+\ No newline at end of file

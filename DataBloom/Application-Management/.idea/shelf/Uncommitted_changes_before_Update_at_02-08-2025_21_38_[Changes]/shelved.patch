@@ -1,0 +1,9 @@
+diff --git a/../../Spring Practice/IceCreamApplication/src/main/webapp/WEB-INF/web.xml b/src/main/webapp/WEB-INF/web.xml
+rename from ../../Spring Practice/IceCreamApplication/src/main/webapp/WEB-INF/web.xml
+rename to src/main/webapp/WEB-INF/web.xml
+diff --git a/../../Spring Practice/IceCreamApplication/.gitignore b/.gitignore
+rename from ../../Spring Practice/IceCreamApplication/.gitignore
+rename to .gitignore
+diff --git a/../../Spring Practice/IceCreamApplication/.idea/.gitignore b/.idea/.gitignore
+rename from ../../Spring Practice/IceCreamApplication/.idea/.gitignore
+rename to .idea/.gitignore
