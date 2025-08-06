@@ -101,34 +101,56 @@ public class RedBusServiceImpl implements RedBusService {
 
     @Override
     public List<RedBusEntity> findAllRedBus() {
-        List<RedBusEntity> list = redBusRepository.findAllRedBus();
-        return list != null ? list : Collections.emptyList();
+        return redBusRepository.findAllRedBus();
     }
 
     @Override
     public RedBusEntity updatePassengerNameByBusIdAndSeatNo(Integer busId, String passengerName, Integer seatNo) {
-        if (busId == null || busId <= 0 || passengerName == null || passengerName.isEmpty() || seatNo == null || seatNo <= 0) {
-            System.out.println("Invalid parameters for updatePassengerNameByBusIdAndSeatNo");
-            return null;
-        }
-        return redBusRepository.updatePassengerNameByBusIdAndSeatNo(busId, passengerName, seatNo);
+       return redBusRepository.updatePassengerNameByBusIdAndSeatNo(busId,passengerName,seatNo);
     }
 
     @Override
     public RedBusEntity updatePassengerAgeByBusIdAndPassengerName(Integer busId, Integer passengerAge, String passengerName) {
-        if (busId == null || busId <= 0 || passengerAge == null || passengerAge <= 0 || passengerName == null || passengerName.isEmpty()) {
-            System.out.println("Invalid parameters for updatePassengerAgeByBusIdAndPassengerName");
-            return null;
-        }
-        return redBusRepository.updatePassengerAgeByBusIdAndPassengerName(busId, passengerAge, passengerName);
+              return redBusRepository.updatePassengerAgeByBusIdAndPassengerName(busId, passengerAge, passengerName);
     }
 
     @Override
     public RedBusEntity updateContactByBusIdAndPassengerAge(Integer busId, Long contact, Integer passengerAge) {
-        if (busId == null || busId <= 0 || contact == null || contact <= 0L || passengerAge == null || passengerAge <= 0) {
-            System.out.println("Invalid parameters for updateContactByBusIdAndPassengerAge");
-            return null;
-        }
-        return redBusRepository.updateContactByBusIdAndPassengerAge(busId, contact, passengerAge);
+               return redBusRepository.updateContactByBusIdAndPassengerAge(busId, contact, passengerAge);
+    }
+
+    @Override
+    public List<String> findAllBusName() {
+        return redBusRepository.findAllBusName();
+    }
+
+    @Override
+    public List<String> findAllPassengerName() {
+        return redBusRepository.findAllPassengerName();
+    }
+
+    @Override
+    public List<Integer> findAllPassengerAge() {
+        return redBusRepository.findAllPassengerAge();
+    }
+
+    @Override
+    public List<Long> findAllContact() {
+        return redBusRepository.findAllContact();
+    }
+
+    @Override
+    public List<Integer> findAllSeatNo() {
+        return redBusRepository.findAllPassengerAge();
+    }
+
+    @Override
+    public List<Object[]> findByAllBusNameAndSeatNo() {
+        return redBusRepository.findByAllBusNameAndSeatNo();
+    }
+
+    @Override
+    public List<Object[]> findByAllPassengerNameAndPassengerAgeAndContact() {
+        return redBusRepository.findByAllPassengerNameAndPassengerAgeAndContact();
     }
 }

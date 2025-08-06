@@ -21,6 +21,13 @@ import javax.persistence.*;
 
 @NamedQuery(name = "updateContactByBusIdAndPassengerAge",
         query = "update RedBusEntity r set r.contact = :contact where r.busId = :busId and r.passengerAge = :passengerAge")
+@NamedQuery(name = "findAllBusName", query = "select b.busName from RedBusEntity b")
+@NamedQuery(name = "findAllPassengerName", query = "select p.passengerName from RedBusEntity p")
+@NamedQuery(name = "findAllPassengerAge", query = "select a.passengerAge from RedBusEntity a")
+@NamedQuery(name = "findAllContact", query = "select c.contact from RedBusEntity c")
+@NamedQuery(name = "findAllSeatNo", query = "select s.seatNo from RedBusEntity s")
+@NamedQuery(name = "findByAllBusNameAndSeatNo", query = "select b.busName, b.seatNo from RedBusEntity b")
+@NamedQuery(name = "findByAllPassengerNameAndPassengerAgeAndContact", query = "select p.passengerName, p.passengerAge, p.contact from RedBusEntity p")
 public class RedBusEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

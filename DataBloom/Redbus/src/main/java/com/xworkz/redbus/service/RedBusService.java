@@ -31,4 +31,18 @@ public interface RedBusService {
     RedBusEntity updatePassengerAgeByBusIdAndPassengerName(Integer busId, Integer passengerAge, String passengerName);
 
     RedBusEntity updateContactByBusIdAndPassengerAge(Integer busId, Long contact, Integer passengerAge);
+
+    List<String> findAllBusName();
+
+    List<String> findAllPassengerName();
+
+    List<Integer> findAllPassengerAge();
+
+    List<Long> findAllContact();
+
+    List<Integer> findAllSeatNo();
+
+    List<Object[]> findByAllBusNameAndSeatNo();
+
+    List<Object[]> findByAllPassengerNameAndPassengerAgeAndContact();
 }

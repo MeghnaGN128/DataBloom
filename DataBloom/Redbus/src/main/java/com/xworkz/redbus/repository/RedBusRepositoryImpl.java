@@ -6,6 +6,8 @@ import javax.persistence.*;
 import java.util.Collections;
 import java.util.List;
 
+import static java.util.Collections.emptyList;
+
 public class RedBusRepositoryImpl implements RedBusRepository {
 
     private static final EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("x-workz");
@@ -324,5 +326,124 @@ public class RedBusRepositoryImpl implements RedBusRepository {
                 entityManager.close();
             }
         }
+    }
+
+    @Override
+    public List<String> findAllBusName() {
+        EntityManager em = null;
+        List<String> list7 = null;
+        try {
+            list7 = entityManagerFactory.createEntityManager().createNamedQuery("findAllBusName").getResultList();
+        } catch (PersistenceException e) {
+            list7 = Collections.emptyList();
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+        return list7;
+    }
+
+
+    @Override
+    public List<String> findAllPassengerName() {
+        EntityManager em = null;
+        List<String> list8 = null;
+        try {
+            list8 = entityManagerFactory.createEntityManager().createNamedQuery("findAllPassengerName").getResultList();
+        } catch (PersistenceException e) {
+            list8 = Collections.emptyList();
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+        return list8;
+    }
+
+    @Override
+    public List<Integer> findAllPassengerAge() {
+        EntityManager em = null;
+        List<Integer> list9=null;
+        try{
+            list9=entityManagerFactory.createEntityManager().createNamedQuery("findAllPassengerAge").getResultList();
+        }catch (PersistenceException e) {
+            list9 = Collections.emptyList();
+        }
+        finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+        return list9;
+    }
+
+    @Override
+    public List<Long> findAllContact() {
+        EntityManager em = null;
+        List<Long> list10=null;
+        try{
+            list10=entityManagerFactory.createEntityManager().createNamedQuery("findAllContact").getResultList();
+        }catch (PersistenceException e) {
+            list10 = Collections.emptyList();
+        }
+        finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+        return list10;
+    }
+
+    @Override
+    public List<Integer> findAllSeatNo() {
+        EntityManager em = null;
+        List<Integer> list11=null;
+        try{
+            list11=entityManagerFactory.createEntityManager().createNamedQuery("findAllSeatNo").getResultList();
+        }catch (PersistenceException e) {
+            list11 = Collections.emptyList();
+        }
+        finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+        return list11;
+
+    }
+
+    @Override
+    public List<Object[]> findByAllBusNameAndSeatNo() {
+        EntityManager em = null;
+        List<Object[]> list12=null;
+        try{
+            list12=entityManagerFactory.createEntityManager().createNamedQuery("findByAllBusNameAndSeatNo").getResultList();
+        }catch (PersistenceException e) {
+            list12 = Collections.emptyList();
+        }
+        finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+        return list12;
+    }
+
+    @Override
+    public List<Object[]> findByAllPassengerNameAndPassengerAgeAndContact() {
+        EntityManager em = null;
+        List<Object[]> list12=null;
+        try{
+            list12=entityManagerFactory.createEntityManager().createNamedQuery("findByAllPassengerNameAndPassengerAgeAndContact").getResultList();
+        }catch (PersistenceException e) {
+            list12 = Collections.emptyList();
+        }
+        finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+        return list12;
     }
 }
