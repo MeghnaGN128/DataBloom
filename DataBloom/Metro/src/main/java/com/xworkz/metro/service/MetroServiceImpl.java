@@ -4,7 +4,6 @@ import com.xworkz.metro.entity.MetroEntity;
 import com.xworkz.metro.repository.MetroRepository;
 import com.xworkz.metro.repository.MetroRepositoryImpl;
 
-import java.util.Collections;
 import java.util.List;
 
 public class MetroServiceImpl implements MetroService {
@@ -48,90 +47,81 @@ public class MetroServiceImpl implements MetroService {
 
     @Override
     public MetroEntity readMetro(Integer metroId) {
-        if (metroId == null || metroId <= 0) {
-            System.out.println("Invalid metroId");
-            return null;
-        }
         return metroRepository.readMetro(metroId);
     }
 
     @Override
     public MetroEntity updateMetro(MetroEntity metroEntity, Integer metroId) {
-        if (isValid(metroEntity) && metroId != null && metroId > 0) {
-            return metroRepository.updateMetro(metroEntity, metroId);
-        }
-        System.out.println("Invalid input for updateMetro");
-        return null;
+        return metroRepository.updateMetro(metroEntity, metroId);
     }
 
     @Override
     public MetroEntity deleteMetro(Integer metroId) {
-        if (metroId == null || metroId <= 0) {
-            System.out.println("Invalid metroId for deletion");
-            return null;
-        }
         return metroRepository.deleteMetro(metroId);
     }
 
     @Override
     public MetroEntity findByMetroName(String metroName) {
-        if (metroName == null || metroName.isEmpty()) {
-            System.out.println("Invalid metroName");
-            return null;
-        }
         return metroRepository.findByMetroName(metroName);
     }
 
     @Override
     public MetroEntity findByOperator(String operator) {
-        if (operator == null || operator.isEmpty()) {
-            System.out.println("Invalid operator");
-            return null;
-        }
         return metroRepository.findByOperator(operator);
     }
 
     @Override
     public MetroEntity findByTotalRoutes(Integer totalRoutes) {
-        if (totalRoutes == null || totalRoutes <= 0) {
-            System.out.println("Invalid totalRoutes");
-            return null;
-        }
         return metroRepository.findByTotalRoutes(totalRoutes);
     }
 
     @Override
     public List<MetroEntity> findAllMetros() {
-        List<MetroEntity> list = metroRepository.findAllMetros();
-        return list != null ? list : Collections.emptyList();
+        return metroRepository.findAllMetros();
     }
 
     @Override
     public MetroEntity updateOperatorByMetroId(Integer metroId, String operator) {
-        if (metroId == null || metroId <= 0 || operator == null || operator.isEmpty()) {
-            System.out.println("Invalid input for updateOperatorByMetroId");
-            return null;
-        }
         return metroRepository.updateOperatorById(metroId, operator);
     }
 
     @Override
     public MetroEntity updateTotalRoutesAndOperatorByMetroName(String metroName, Integer totalRoutes, String operator) {
-        if (metroName == null || metroName.isEmpty() || totalRoutes == null || totalRoutes <= 0
-                || operator == null || operator.isEmpty()) {
-            System.out.println("Invalid input for updateTotalRoutesAndOperatorByMetroName");
-            return null;
-        }
         return metroRepository.updateTotalRoutesAndOperatorByName(metroName, totalRoutes, operator);
     }
 
     @Override
     public MetroEntity updateMetroNameByOperatorAndTotalRoutes(String operator, Integer totalRoutes, String metroName) {
-        if (operator == null || operator.isEmpty() || totalRoutes == null || totalRoutes <= 0
-                || metroName == null || metroName.isEmpty()) {
-            System.out.println("Invalid input for updateMetroNameByOperatorAndTotalRoutes");
-            return null;
-        }
         return metroRepository.updateMetroNameByOperatorAndRoutes(operator, totalRoutes, metroName);
+    }
+
+    @Override
+    public List<Integer> findAllMetroIds() {
+        return metroRepository.findAllMetroIds();
+    }
+
+    @Override
+    public List<String> findAllMetroNames() {
+        return metroRepository.findAllMetroNames();
+    }
+
+    @Override
+    public List<String> findAllOperators() {
+        return metroRepository.findAllOperators();
+    }
+
+    @Override
+    public List<Integer> findAllTotalRoutes() {
+        return metroRepository.findAllTotalRoutes();
+    }
+
+    @Override
+    public List<String[]> findAllMetroNameAndOperator() {
+        return metroRepository.findAllMetroNameAndOperator();
+    }
+
+    @Override
+    public List<Object[]> findByAllOperatorAndTotalRoutesAndMetroName() {
+        return metroRepository.findByAllOperatorAndTotalRoutesAndMetroName();
     }
 }

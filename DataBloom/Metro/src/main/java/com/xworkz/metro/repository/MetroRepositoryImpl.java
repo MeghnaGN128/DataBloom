@@ -3,6 +3,7 @@ package com.xworkz.metro.repository;
 import com.xworkz.metro.entity.MetroEntity;
 
 import javax.persistence.*;
+import java.util.Collections;
 import java.util.List;
 
 public class MetroRepositoryImpl implements MetroRepository {
@@ -261,5 +262,102 @@ public class MetroRepositoryImpl implements MetroRepository {
                 entityManager.close();
         }
         return null;
+    }
+
+    @Override
+    public List<Integer> findAllMetroIds() {
+        EntityManager em = null;
+        List<Integer> list = null;
+        try {
+            list = entityManagerFactory.createEntityManager().createNamedQuery("findAllMetroIds").getResultList();
+        } catch (PersistenceException e) {
+            list = Collections.emptyList();
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+        return list;
+
+    }
+
+    @Override
+    public List<String> findAllMetroNames() {
+        EntityManager em = null;
+        List<String> list = null;
+        try {
+            list = entityManagerFactory.createEntityManager().createNamedQuery("findAllMetroNames").getResultList();
+        } catch (PersistenceException e) {
+            list = Collections.emptyList();
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+        return list;
+    }
+
+    @Override
+    public List<String> findAllOperators() {
+        EntityManager em = null;
+        List<String> list = null;
+        try {
+            list = entityManagerFactory.createEntityManager().createNamedQuery("findAllOperators").getResultList();
+        } catch (PersistenceException e) {
+            list = Collections.emptyList();
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+        return list;
+    }
+
+    @Override
+    public List<Integer> findAllTotalRoutes() {
+        EntityManager em = null;
+        List<Integer> list = null;
+        try {
+            list = entityManagerFactory.createEntityManager().createNamedQuery("findAllTotalRoutes").getResultList();
+        } catch (PersistenceException e) {
+            list = Collections.emptyList();
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+        return list;
+    }
+
+    @Override
+    public List<String[]> findAllMetroNameAndOperator() {
+        EntityManager em = null;
+        List<String[]> list = null;
+        try {
+            list = entityManagerFactory.createEntityManager().createNamedQuery("findAllMetroNameAndOperator").getResultList();
+        } catch (PersistenceException e) {
+            list = Collections.emptyList();
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+        return list;
+    }
+
+    @Override
+    public List<Object[]> findByAllOperatorAndTotalRoutesAndMetroName() {
+        EntityManager em = null;
+        List<Object[]> list = null;
+        try {
+            list = entityManagerFactory.createEntityManager().createNamedQuery("findByAllOperatorAndTotalRoutesAndMetroName").getResultList();
+        } catch (PersistenceException e) {
+            list = Collections.emptyList();
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+        return list;
     }
 }

@@ -3,12 +3,16 @@ package com.xworkz.metro.runner;
 import com.xworkz.metro.entity.MetroEntity;
 import com.xworkz.metro.repository.MetroRepository;
 import com.xworkz.metro.repository.MetroRepositoryImpl;
+import com.xworkz.metro.service.MetroService;
+import com.xworkz.metro.service.MetroServiceImpl;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class MetroRunner {
     public static void main(String[] args) {
         MetroRepository repository = new MetroRepositoryImpl();
+        MetroService metroService=new MetroServiceImpl();
 
         // Create and save a new MetroEntity
         MetroEntity metro = new MetroEntity();
@@ -52,7 +56,40 @@ public class MetroRunner {
 //        List<MetroEntity> allMetros = repository.findAllMetros();
 //        System.out.println("Total Metro entities found: " + allMetros.size());
 //        allMetros.forEach(System.out::println);
+//        List<Integer> l1=metroService.findAllMetroIds();
+//        l1.forEach(System.out::println);
 //
-//        // You could continue adding more tests for your named query updates and finds here...
+//        List<String> l2=metroService.findAllMetroNames();
+//        l2.forEach(System.out::println);
+//
+//        List<String> l4=metroService.findAllOperators();
+//        l4.forEach(System.out::println);
+//
+//        List<Integer> l5=metroService.findAllTotalRoutes();
+//        l5.forEach(System.out::println);
+
+//        List<String[]> l6=metroService.findAllMetroNameAndOperator();
+//        l6.forEach(row -> System.out.println(Arrays.toString(row)));
+//
+////
+////        List<Object[]> l7 = metroService.findByAllOperatorAndTotalRoutesAndMetroName();
+////        l7.forEach((a) -> System.out.println(Arrays.toString(a)));
+
+        try {
+            List<String[]> l6 = metroService.findAllMetroNameAndOperator();
+            l6.forEach(row -> System.out.println(Arrays.toString(row)));
+        } catch (Exception e) {
+            System.out.println("Error while fetching metro name and operator: " + e.getMessage());
+        }
+
+        try {
+            List<Object[]> l7 = metroService.findByAllOperatorAndTotalRoutesAndMetroName();
+            l7.forEach((a) -> System.out.println(Arrays.toString(a)));
+        } catch (Exception e) {
+            System.out.println("Error while fetching operator, routes, and metro name: " + e.getMessage());
+        }
+
+
+
     }
 }

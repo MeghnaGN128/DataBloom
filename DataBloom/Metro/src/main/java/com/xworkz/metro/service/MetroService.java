@@ -26,4 +26,16 @@ public interface MetroService {
     MetroEntity updateTotalRoutesAndOperatorByMetroName(String metroName, Integer totalRoutes, String operator);
 
     MetroEntity updateMetroNameByOperatorAndTotalRoutes(String operator, Integer totalRoutes, String metroName);
+
+    List<Integer> findAllMetroIds();
+
+    List<String> findAllMetroNames();
+
+    List<String> findAllOperators();
+
+    List<Integer> findAllTotalRoutes();
+
+    List<String[]> findAllMetroNameAndOperator();
+
+    List<Object[]> findByAllOperatorAndTotalRoutesAndMetroName();
 }
