@@ -15,6 +15,9 @@ import java.time.LocalDate;
 @NamedQuery(name = "findByRatings", query = "select r from ApplicationEntity r where r.ratings=:ratings")
 @NamedQuery(name = "findByLaunchDate", query = "select d from ApplicationEntity d where d.launchDate=:launchDate")
 @NamedQuery(name="findByAll",query = "select a from ApplicationEntity a")
+
+@NamedQuery(name="updateApplicationNameAndNoOfUsers",
+        query = "update ApplicationEntity a set a.noOfUsers=:noOfUsers, a.applicationName=:applicationName where a.company=:company and a.applicationId=:applicationId")
 public class ApplicationEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

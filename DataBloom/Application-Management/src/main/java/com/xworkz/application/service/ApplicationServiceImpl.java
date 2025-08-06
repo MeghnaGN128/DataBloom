@@ -9,7 +9,7 @@ import java.util.List;
 
 public class ApplicationServiceImpl implements ApplicationService {
 
-    ApplicationRepository applicationRepository = new ApplicationRepositoryImpl();
+private  final     ApplicationRepository applicationRepository = new ApplicationRepositoryImpl();
 
     @Override
     public void saveApplication(ApplicationEntity applicationEntity) {
@@ -102,5 +102,10 @@ public class ApplicationServiceImpl implements ApplicationService {
     @Override
     public List<ApplicationEntity> findByAll() {
         return applicationRepository.findByAll();
+    }
+
+    @Override
+    public ApplicationEntity updateApplicationNameAndNoOfUsers(Integer id, String applicationName, String company,Integer noOfUsers) {
+        return applicationRepository.updateApplicationNameAndNoOfUsers(id, applicationName, company,noOfUsers);
     }
 }

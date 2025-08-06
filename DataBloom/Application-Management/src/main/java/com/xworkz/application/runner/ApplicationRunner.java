@@ -25,11 +25,11 @@ public class ApplicationRunner {
 
 
         //read
-//        ApplicationEntity applicationEntity1= applicationService.readApplication(1);
-//        System.out.println(applicationEntity1);
+//        applicationService.readApplication(2);
+//        System.out.println("Application read successfully!");
         //read
 
-      //update
+        //update
 //        ApplicationEntity updatedEntity = new ApplicationEntity();
 //        updatedEntity.setApplicationName("Swiggy");
 //        updatedEntity.setApplicationSize("30 MB");
@@ -37,22 +37,22 @@ public class ApplicationRunner {
 //        updatedEntity.setNoOfUsers(1200);
 //        updatedEntity.setRatings(4.7f);
 //        updatedEntity.setLaunchDate(LocalDate.of(2025, 7, 15));
-//        Integer idToUpdate = 1;
+//        Integer idToUpdate = 2;
 //        ApplicationEntity updated = applicationService.updateApplication(updatedEntity, idToUpdate);
 //        if (updated != null) {
 //            System.out.println("Update successful: " + updated);
 //        } else {
 //            System.out.println("Update failed: Entity with ID " + idToUpdate + " not found");
 //        }
-         //update
+        //update
 
         //delete
-//        Integer id = 1;
+//        Integer id = 3;
 //        boolean isDeleted = applicationService.deleteApplication(id) != null;
         //delete
 
-       //findbyname
-//        String nameToFind = "Bigbasket";
+        //findbyname
+//        String nameToFind = "Swiggy";
 //
 //        ApplicationEntity entity = applicationService.findApplicationByName(nameToFind);
 //
@@ -64,12 +64,13 @@ public class ApplicationRunner {
         //findbyname
 
         // findBySize
-//        ApplicationEntity entityBySize = applicationService.findBySize("20 KB");
+//        ApplicationEntity entityBySize = applicationService.findBySize("30 MB");
 //        if (entityBySize != null) {
 //            System.out.println("Found by size: " + entityBySize);
 //        } else {
 //            System.out.println("No application found by size 20 KB");
 //        }
+        //findBySize
 
         // findByCompany
 //        ApplicationEntity entityByCompany = applicationService.findByCompany("Relince");
@@ -105,13 +106,16 @@ public class ApplicationRunner {
 
         // findByAll
 //        List<ApplicationEntity> allEntities = applicationService.findByAll();
-//        if (allEntities != null && !allEntities.isEmpty()) {
+//        if (allEntities != null) {
 //            System.out.println("All applications:");
 //            allEntities.forEach(System.out::println);
 //        } else {
 //            System.out.println("No applications found");
 //       }
 
+        ApplicationEntity application=applicationService.updateApplicationNameAndNoOfUsers(2 ,"Google","Swiggy Company",120);
+        System.out.println("updateApplicationNameAndNoOfUsers"+application);
 
+        }
     }
-}
+

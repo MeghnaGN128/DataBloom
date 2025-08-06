@@ -27,4 +27,7 @@ public interface ApplicationService {
     ApplicationEntity findByDate(LocalDate date);
 
     List<ApplicationEntity> findByAll();
+
+    ApplicationEntity updateApplicationNameAndNoOfUsers(Integer id,String applicationName,String company,Integer noOfUsers);
+
 }

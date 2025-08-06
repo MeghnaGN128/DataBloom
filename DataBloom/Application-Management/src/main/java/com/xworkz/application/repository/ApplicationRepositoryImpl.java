@@ -6,6 +6,9 @@ import java.time.LocalDate;
 import java.util.List;
 
 public class ApplicationRepositoryImpl implements ApplicationRepository {
+    public ApplicationRepositoryImpl(){
+        System.out.println("Running in ApplicationRepositoryImpl");
+    }
 
     private static final EntityManagerFactory entityManagerFactory =
             Persistence.createEntityManagerFactory("x-workz");
@@ -46,7 +49,6 @@ public class ApplicationRepositoryImpl implements ApplicationRepository {
         try {
             entityManager = entityManagerFactory.createEntityManager();
             applicationEntity = entityManager.find(ApplicationEntity.class, id);
-            // Removed internal print statement here to avoid duplicate output
         } catch (PersistenceException e) {
             e.printStackTrace();
         } finally {
@@ -250,14 +252,15 @@ public class ApplicationRepositoryImpl implements ApplicationRepository {
     }
 
     @Override
-    @SuppressWarnings("unchecked")
     public List<ApplicationEntity> findByAll() {
         EntityManager entityManager = null;
         List<ApplicationEntity> list = null;
         try {
             entityManager = entityManagerFactory.createEntityManager();
-            Query query = entityManager.createNamedQuery("applicationAll");
-            list = query.getResultList();
+//            Query query = entityManager.createNamedQuery("findByAll");
+//            list = query.getResultList();
+            TypedQuery<ApplicationEntity> typedQuery= entityManager.createQuery("select a from ApplicationEntity a", ApplicationEntity.class);
+            list =typedQuery.getResultList();
             System.out.println("findByAll: " + list.size() + " records fetched.");
         } catch (PersistenceException e) {
             e.printStackTrace();
@@ -268,5 +271,31 @@ public class ApplicationRepositoryImpl implements ApplicationRepository {
             }
         }
         return list;
+    }
+
+    @Override
+    public ApplicationEntity updateApplicationNameAndNoOfUsers(Integer id, String applicationName, String company,Integer noOfUsers) {
+        EntityManager entityManager=null;
+               try{
+            entityManager=entityManagerFactory.createEntityManager();
+            entityManager.getTransaction().begin();
+            int isupdates=entityManager.createNamedQuery("updateApplicationNameAndNoOfUsers")
+                    .setParameter("noOfUsers",noOfUsers)
+                    .setParameter("applicationName",applicationName)
+                    .setParameter("company",company)
+                    .setParameter("applicationId",id)
+                    .executeUpdate();
+            entityManager.getTransaction().commit();
+            ApplicationEntity applicationEntity=entityManager.find(ApplicationEntity.class,id);
+            return applicationEntity;
+        }catch (PersistenceException e){
+            e.printStackTrace();
+            entityManager.getTransaction().rollback();
+        }finally{
+            if(entityManager!=null){
+                entityManager.close();
+            }
+        }
+        return null;
     }
 }
