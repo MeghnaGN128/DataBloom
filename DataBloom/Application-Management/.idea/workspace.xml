@@ -4,7 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2059d8df-9d03-4fda-a3e3-df3d3479137e" name="Changes" comment="Commit Application with changes">
+    <list default="true" id="2059d8df-9d03-4fda-a3e3-df3d3479137e" name="Changes" comment="Commit Application with changes update query">
+      <change afterPath="$PROJECT_DIR$/../Book/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Book/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Book/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Book/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Book/src/main/webapp/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Car/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Car/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Car/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Car/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Car/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Car/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Car/src/main/webapp/index.jsp" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Excell/.gitignore" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Excell/.idea/.gitignore" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Excell/.idea/vcs.xml" afterDir="false" />
@@ -17,30 +29,19 @@
       <change afterPath="$PROJECT_DIR$/../Excell/src/main/webapp/ExcelSuccess.jsp" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Excell/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Excell/src/main/webapp/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MakeupKit/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MakeupKit/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MakeupKit/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MakeupKit/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MakeupKit/src/main/webapp/index.jsp" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Metro/.gitignore" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Metro/.idea/.gitignore" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Metro/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Metro/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Metro/src/main/java/com/xworkz/metro/entity/MetroEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Metro/src/main/java/com/xworkz/metro/repository/MetroRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Metro/src/main/java/com/xworkz/metro/repository/MetroRepositoryImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Metro/src/main/java/com/xworkz/metro/runner/MetroRunner.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Metro/src/main/java/com/xworkz/metro/service/MetroService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Metro/src/main/java/com/xworkz/metro/service/MetroServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Metro/src/main/resources/META-INF/persistence.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Metro/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Metro/src/main/webapp/index.jsp" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Redbus/.gitignore" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Redbus/.idea/.gitignore" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Redbus/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Redbus/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Redbus/src/main/java/com/xworkz/redbus/entity/RedBusEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Redbus/src/main/java/com/xworkz/redbus/repository/RedBusRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Redbus/src/main/java/com/xworkz/redbus/repository/RedBusRepositoryImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Redbus/src/main/java/com/xworkz/redbus/runner/RedBusRunner.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Redbus/src/main/java/com/xworkz/redbus/service/RedBusService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Redbus/src/main/java/com/xworkz/redbus/service/RedBusServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Redbus/src/main/resources/META-INF/persistence.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Redbus/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Redbus/src/main/webapp/index.jsp" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Zoo/.gitignore" afterDir="false" />
@@ -82,6 +83,7 @@
       <change beforePath="$PROJECT_DIR$/target/classes/com/xworkz/application/runner/ApplicationRunner.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xworkz/application/runner/ApplicationRunner.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/xworkz/application/service/ApplicationService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xworkz/application/service/ApplicationService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/xworkz/application/service/ApplicationServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xworkz/application/service/ApplicationServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Redbus/src/main/java/com/xworkz/redbus/runner/RedBusRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Redbus/src/main/java/com/xworkz/redbus/runner/RedBusRunner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Spring Practice/SuperMarket/src/main/java/com/xworkz/supermarket/configuration/ProductInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Spring Practice/SuperMarket/src/main/java/com/xworkz/supermarket/configuration/ProductInitializer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Spring Practice/SuperMarket/src/main/java/com/xworkz/supermarket/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Spring Practice/SuperMarket/src/main/java/com/xworkz/supermarket/controller/ProductController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Spring Practice/SuperMarket/src/main/java/com/xworkz/supermarket/dto/ProductDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Spring Practice/SuperMarket/src/main/java/com/xworkz/supermarket/dto/ProductDTO.java" afterDir="false" />
@@ -215,13 +217,22 @@
       <option name="project" value="LOCAL" />
       <updated>1754328275578</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Commit Application with changes update query">
+      <option name="closed" value="true" />
+      <created>1754456400323</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1754456400323</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Commit Practice  jpa" />
     <MESSAGE value="Commit Application Spring in jpa" />
     <MESSAGE value="Commit Application with changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Commit Application with changes" />
+    <MESSAGE value="Commit Application with changes update query" />
+    <option name="LAST_COMMIT_MESSAGE" value="Commit Application with changes update query" />
   </component>
 </project>

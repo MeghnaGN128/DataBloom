@@ -30,4 +30,19 @@ public interface ApplicationService {
 
     ApplicationEntity updateApplicationNameAndNoOfUsers(Integer id,String applicationName,String company,Integer noOfUsers);
 
+    List<String> findAllApplicationName();
+
+    List<String> findAllCompany();
+
+    List<String> findAllApplicationSize();
+
+    List<String> findAllNoOfUsers();
+
+    List<Object> findByAllLaunchDate();
+
+//    List<Object[]> findByAllApplicationNameAndApplicationSize();
+
+    List<String[]> findByAllApplicationNameAndApplicationSize();
+
+    List<Object[]> findByCompanyaAndRatingsAndLaunchDate();
 }

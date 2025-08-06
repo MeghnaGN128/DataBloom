@@ -5,6 +5,7 @@ import com.xworkz.application.service.ApplicationService;
 import com.xworkz.application.service.ApplicationServiceImpl;
 
 import java.time.LocalDate;
+import java.util.Arrays;
 import java.util.List;
 
 public class ApplicationRunner {
@@ -113,9 +114,35 @@ public class ApplicationRunner {
 //            System.out.println("No applications found");
 //       }
 
-        ApplicationEntity application=applicationService.updateApplicationNameAndNoOfUsers(2 ,"Google","Swiggy Company",120);
-        System.out.println("updateApplicationNameAndNoOfUsers"+application);
+//        ApplicationEntity application=applicationService.updateApplicationNameAndNoOfUsers(2 ,"Google","Swiggy Company",120);
+//        System.out.println("updateApplicationNameAndNoOfUsers"+application);
 
-        }
+
+        //findApplicationName
+//        List<String> l=applicationService.findAllApplicationName();
+//        l.forEach(System.out::println);
+
+//        List<String> li=applicationService.findAllCompany();
+//        li.forEach(System.out::println);
+
+//        List<String> l1=applicationService.findAllApplicationSize();
+//        l1.forEach(System.out::println);
+//
+//        List<String> l2=applicationService.findAllNoOfUsers();
+//        l2.forEach(System.out::println);
+//
+//        List<Object> l3=applicationService.findByAllLaunchDate();
+//        l3.forEach(System.out::println);
+
+//        List<String[]> l4=applicationService.findByAllApplicationNameAndApplicationSize();
+//        for(Object[] o:l4){
+//            System.out.println("Application Name:"+o[0]+"  "+"NoOfUsers:"+o[1]);
+//        }
+
+//        List<Object[]> l5 = applicationService.findByCompanyaAndRatingsAndLaunchDate();
+//        l5.forEach((a) -> System.out.println(Arrays.toString(a)));
+
+
     }
+}
 

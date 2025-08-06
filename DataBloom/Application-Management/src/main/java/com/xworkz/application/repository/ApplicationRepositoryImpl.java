@@ -3,7 +3,10 @@ package com.xworkz.application.repository;
 import com.xworkz.application.entity.ApplicationEntity;
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Collections;
 import java.util.List;
+
+import static java.util.Collections.emptyList;
 
 public class ApplicationRepositoryImpl implements ApplicationRepository {
     public ApplicationRepositoryImpl(){
@@ -297,5 +300,119 @@ public class ApplicationRepositoryImpl implements ApplicationRepository {
             }
         }
         return null;
+    }
+
+    @Override
+    public List<String> findAllApplicationName() {
+        EntityManager em=null;
+        List<String> list=null;
+        try{
+            list=entityManagerFactory.createEntityManager().createNamedQuery("findAllApplicationName").getResultList();
+        }catch (PersistenceException e){
+        list=Collections.emptyList();
+    }finally {
+            if(em!=null){
+                em.close();
+            }
+        }
+        return list;
+        }
+
+    @Override
+    public List<String> findAllCompany() {
+        EntityManager em = null;
+        List<String> list1 = null;
+        try {
+            list1 = entityManagerFactory.createEntityManager().createNamedQuery("findAllCompany").getResultList();
+        } catch (PersistenceException e) {
+            list1 = emptyList();
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+        return list1;
+    }
+
+    @Override
+    public List<String> findAllApplicationSize() {
+        EntityManager em = null;
+        List<String> list2 = null;
+        try {
+            list2 = entityManagerFactory.createEntityManager().createNamedQuery("findAllApplicationSize").getResultList();
+        } catch (PersistenceException e) {
+            list2 = emptyList();
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+        return list2;
+    }
+
+    @Override
+    public List<String> findAllNoOfUsers() {
+        EntityManager em = null;
+        List<String> list3 = null;
+        try {
+            list3 = entityManagerFactory.createEntityManager().createNamedQuery("findAllNoOfUsers").getResultList();
+        } catch (PersistenceException e) {
+            list3 = emptyList();
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+        return list3;
+
+    }
+
+    @Override
+    public List<Object> findByAllLaunchDate() {
+        EntityManager em = null;
+        List<Object> list4 = null;
+        try {
+            list4 = entityManagerFactory.createEntityManager().createNamedQuery("findByAllLaunchDate").getResultList();
+        } catch (PersistenceException e) {
+            list4 = emptyList();
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+        return list4;
+    }
+
+    @Override
+    public List<String[]> findByAllApplicationNameAndApplicationSize() {
+
+        EntityManager em = null;
+        List<String[]> list5 = null;
+        try {
+            list5 = entityManagerFactory.createEntityManager().createNamedQuery("findByAllApplicationNameAndApplicationSize").getResultList();
+        } catch (PersistenceException e) {
+            list5 = emptyList();
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+        return list5;
+    }
+
+    @Override
+    public List<Object[]> findByCompanyaAndRatingsAndLaunchDate() {
+        EntityManager em = null;
+        List<Object[]> list6 = null;
+        try {
+            list6 = entityManagerFactory.createEntityManager().createNamedQuery("findByCompanyaAndRatingsAndLaunchDate").getResultList();
+        } catch (PersistenceException e) {
+            list6 = emptyList();
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+        return list6;
     }
 }

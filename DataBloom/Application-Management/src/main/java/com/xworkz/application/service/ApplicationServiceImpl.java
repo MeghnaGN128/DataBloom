@@ -5,11 +5,12 @@ import com.xworkz.application.repository.ApplicationRepository;
 import com.xworkz.application.repository.ApplicationRepositoryImpl;
 
 import java.time.LocalDate;
+import java.util.Collections;
 import java.util.List;
 
 public class ApplicationServiceImpl implements ApplicationService {
 
-private  final     ApplicationRepository applicationRepository = new ApplicationRepositoryImpl();
+    private final ApplicationRepository applicationRepository = new ApplicationRepositoryImpl();
 
     @Override
     public void saveApplication(ApplicationEntity applicationEntity) {
@@ -105,7 +106,42 @@ private  final     ApplicationRepository applicationRepository = new Application
     }
 
     @Override
-    public ApplicationEntity updateApplicationNameAndNoOfUsers(Integer id, String applicationName, String company,Integer noOfUsers) {
-        return applicationRepository.updateApplicationNameAndNoOfUsers(id, applicationName, company,noOfUsers);
+    public ApplicationEntity updateApplicationNameAndNoOfUsers(Integer id, String applicationName, String company, Integer noOfUsers) {
+        return applicationRepository.updateApplicationNameAndNoOfUsers(id, applicationName, company, noOfUsers);
+    }
+
+    @Override
+    public List<String> findAllApplicationName() {
+        return applicationRepository.findAllApplicationName();
+    }
+
+    @Override
+    public List<String> findAllCompany() {
+        return applicationRepository.findAllCompany();
+    }
+
+    @Override
+    public List<String> findAllApplicationSize() {
+        return applicationRepository.findAllApplicationSize();
+    }
+
+    @Override
+    public List<String> findAllNoOfUsers() {
+        return applicationRepository.findAllNoOfUsers();
+    }
+
+    @Override
+    public List<Object> findByAllLaunchDate() {
+        return applicationRepository.findByAllLaunchDate();
+    }
+
+    @Override
+    public List<String[]> findByAllApplicationNameAndApplicationSize() {
+        return  applicationRepository.findByAllApplicationNameAndApplicationSize();
+    }
+
+    @Override
+    public List<Object[]> findByCompanyaAndRatingsAndLaunchDate() {
+        return applicationRepository.findByCompanyaAndRatingsAndLaunchDate();
     }
 }
