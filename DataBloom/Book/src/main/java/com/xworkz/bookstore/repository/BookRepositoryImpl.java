@@ -4,7 +4,9 @@ import com.xworkz.bookstore.entity.BookEntity;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
 public class BookRepositoryImpl implements BookRepository {
 
@@ -260,5 +262,101 @@ public class BookRepositoryImpl implements BookRepository {
             if (em != null && em.isOpen()) em.close();
         }
         return null;
+    }
+
+    @Override
+    public List<Integer> findByAllBookIds() {
+        EntityManager em = null;
+        List<Integer> list6 = null;
+        try {
+            list6 = entityManagerFactory.createEntityManager().createNamedQuery("findByAllBookIds").getResultList();
+        } catch (PersistenceException e) {
+            list6 = Collections.emptyList();
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+        return list6;
+    }
+
+    @Override
+    public List<String> findByAllTitles() {
+        EntityManager em = null;
+        List<String> list6 = null;
+        try {
+            list6 = entityManagerFactory.createEntityManager().createNamedQuery("findByAllTitles").getResultList();
+        } catch (PersistenceException e) {
+            list6 = Collections.emptyList();
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+        return list6;
+    }
+
+    @Override
+    public List<String> findByAllAuthors() {
+        EntityManager em = null;
+        List<String> list6 = null;
+        try {
+            list6 = entityManagerFactory.createEntityManager().createNamedQuery("findByAllAuthors").getResultList();
+        } catch (PersistenceException e) {
+            list6 = Collections.emptyList();
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+        return list6;
+    }
+
+    @Override
+    public List<LocalDate> findByAllPublishedDates() {
+        EntityManager em = null;
+        List<LocalDate> list6 = null;
+        try {
+            list6 = entityManagerFactory.createEntityManager().createNamedQuery("findByAllPublishedDates").getResultList();
+        } catch (PersistenceException e) {
+            list6 = Collections.emptyList();
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+        return list6;
+    }
+
+    @Override
+    public List<Object[]> findByAllPublishersAndPrices() {
+        EntityManager em = null;
+        List<Object[]> list6 = null;
+        try {
+            list6 = entityManagerFactory.createEntityManager().createNamedQuery("findByAllPublishersAndPrices").getResultList();
+        } catch (PersistenceException e) {
+            list6 = Collections.emptyList();
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+        return list6;
+    }
+
+    @Override
+    public List<Object[]> findByAllTitleAndAuthorAndPrice() {
+        EntityManager em = null;
+        List<Object[]> list6 = null;
+        try {
+            list6 = entityManagerFactory.createEntityManager().createNamedQuery("findByAllTitleAndAuthorAndPrice").getResultList();
+        } catch (PersistenceException e) {
+            list6 = Collections.emptyList();
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+        return list6;
     }
 }

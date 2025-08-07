@@ -5,8 +5,9 @@ import com.xworkz.bookstore.repository.BookRepository;
 import com.xworkz.bookstore.repository.BookRepositoryImpl;
 
 import java.time.LocalDate;
-import java.util.Collections;
+import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 public class BookServiceImpl implements BookService {
 
@@ -49,97 +50,86 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public BookEntity readBook(Integer bookId) {
-        if (bookId == null || bookId <= 0) {
-            System.out.println("Invalid bookId");
-            return null;
-        }
         return bookRepository.readBook(bookId);
     }
 
     @Override
     public BookEntity updateBook(BookEntity bookEntity, Integer bookId) {
-        if (isValid(bookEntity) && bookId != null && bookId > 0) {
-            return bookRepository.updateBook(bookEntity, bookId);
-        }
-        System.out.println("Invalid input for updateBook");
-        return null;
+        return bookRepository.updateBook(bookEntity, bookId);
     }
 
     @Override
     public BookEntity deleteBook(Integer bookId) {
-        if (bookId == null || bookId <= 0) {
-            System.out.println("Invalid bookId for deletion");
-            return null;
-        }
         return bookRepository.deleteBook(bookId);
     }
 
     @Override
     public BookEntity findByTitle(String title) {
-        if (title == null || title.isEmpty()) {
-            System.out.println("Invalid title");
-            return null;
-        }
         return bookRepository.findByTitle(title);
     }
 
     @Override
     public BookEntity findByAuthor(String author) {
-        if (author == null || author.isEmpty()) {
-            System.out.println("Invalid author");
-            return null;
-        }
         return bookRepository.findByAuthor(author);
     }
 
     @Override
     public BookEntity findByPublisher(String publisher) {
-        if (publisher == null || publisher.isEmpty()) {
-            System.out.println("Invalid publisher");
-            return null;
-        }
         return bookRepository.findByPublisher(publisher);
     }
 
     @Override
     public BookEntity findByPrice(Double price) {
-        if (price == null || price <= 0) {
-            System.out.println("Invalid price");
-            return null;
-        }
         return bookRepository.findByPrice(price);
     }
 
     @Override
     public List<BookEntity> findAllBooks() {
-        List<BookEntity> list = bookRepository.findAllBooks();
-        return list != null ? list : Collections.emptyList();
+        return bookRepository.findAllBooks();
     }
 
     @Override
     public BookEntity updatePriceById(Integer bookId, Double price) {
-        if (bookId == null || bookId <= 0 || price == null || price <= 0) {
-            System.out.println("Invalid input to updatePriceById");
-            return null;
-        }
         return bookRepository.updatePriceById(bookId, price);
     }
 
     @Override
     public BookEntity updatePublisherAndPublishedDateByTitle(String title, String publisher, LocalDate publishedDate) {
-        if (title == null || title.isEmpty() || publisher == null || publisher.isEmpty() || publishedDate == null) {
-            System.out.println("Invalid input to updatePublisherAndPublishedDateByTitle");
-            return null;
-        }
         return bookRepository.updatePublisherAndPublishedDateByTitle(title, publisher, publishedDate);
     }
 
     @Override
     public BookEntity updateTitleByAuthorAndPrice(String author, Double price, String title) {
-        if (author == null || author.isEmpty() || price == null || price <= 0 || title == null || title.isEmpty()) {
-            System.out.println("Invalid input to updateTitleByAuthorAndPrice");
-            return null;
-        }
         return bookRepository.updateTitleByAuthorAndPrice(author, price, title);
+    }
+
+    @Override
+    public List<Integer> findByAllBookIds() {
+        return bookRepository.findByAllBookIds();
+    }
+
+    @Override
+    public List<String> findByAllTitles() {
+        return bookRepository.findByAllTitles();
+    }
+
+    @Override
+    public List<String> findByAllAuthors() {
+        return bookRepository.findByAllAuthors();
+    }
+
+    @Override
+    public List<LocalDate> findByAllPublishedDates() {
+        return bookRepository.findByAllPublishedDates();
+    }
+
+    @Override
+    public List<Object[]> findByAllPublishersAndPrices() {
+        return bookRepository.findByAllPublishersAndPrices();
+    }
+
+    @Override
+    public List<Object[]> findByAllTitleAndAuthorAndPrice() {
+        return bookRepository.findByAllTitleAndAuthorAndPrice();
     }
 }

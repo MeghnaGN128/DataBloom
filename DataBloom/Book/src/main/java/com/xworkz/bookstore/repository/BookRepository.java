@@ -3,6 +3,7 @@ package com.xworkz.bookstore.repository;
 import com.xworkz.bookstore.entity.BookEntity;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Objects;
 
 public interface BookRepository {
 
@@ -29,4 +30,16 @@ public interface BookRepository {
     BookEntity updatePublisherAndPublishedDateByTitle(String title, String publisher, LocalDate publishedDate);
 
     BookEntity updateTitleByAuthorAndPrice(String author, Double price, String title);
+
+    List<Integer> findByAllBookIds();
+
+    List<String> findByAllTitles();
+
+    List<String> findByAllAuthors();
+
+    List<LocalDate> findByAllPublishedDates();
+
+    List<Object[]>  findByAllPublishersAndPrices();
+
+    List<Object[]>  findByAllTitleAndAuthorAndPrice();
 }
