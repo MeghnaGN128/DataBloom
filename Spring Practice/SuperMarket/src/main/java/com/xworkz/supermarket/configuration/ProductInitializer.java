@@ -19,17 +19,22 @@ public class ProductInitializer extends AbstractAnnotationConfigDispatcherServle
 
     @Override
     protected String[] getServletMappings() {
+
         return new String[]{"/"};
     }
 
     @Override
     protected void customizeRegistration(ServletRegistration.Dynamic registration) {
+
         File uploadDirectory = new File(System.getProperty("java.io.tmpdir"));
-        int maxUploadSizeInMb = 5 * 1024 * 1024;
+        int maxUploadSizeInMb=5*1024*1024;
         MultipartConfigElement multipartConfigElement =
                 new MultipartConfigElement(uploadDirectory.getAbsolutePath(),
                         maxUploadSizeInMb, maxUploadSizeInMb * 2, maxUploadSizeInMb / 2);
 
         registration.setMultipartConfig(multipartConfigElement);
+
     }
+
+
 }

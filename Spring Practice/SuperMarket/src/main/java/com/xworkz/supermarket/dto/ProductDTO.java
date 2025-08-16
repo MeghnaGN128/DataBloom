@@ -1,14 +1,13 @@
 package com.xworkz.supermarket.dto;
 
 import lombok.Data;
+import lombok.ToString;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.validation.constraints.DecimalMin;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 
 @Data
+@ToString
 public class ProductDTO {
     @NotBlank
     private String productName;
@@ -20,4 +19,9 @@ public class ProductDTO {
     @Size(max = 200)
     private String description;
 
+    @NotNull
+    private String Email;
+
+    @NotNull
+    private MultipartFile productImage;
 }
