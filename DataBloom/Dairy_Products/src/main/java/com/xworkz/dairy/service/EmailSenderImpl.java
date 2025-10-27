@@ -32,4 +32,3 @@ public class EmailSenderImpl implements EmailSender {
         }
     }
 }
-

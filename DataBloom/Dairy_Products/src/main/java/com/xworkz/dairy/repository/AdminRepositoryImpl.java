@@ -40,61 +40,61 @@ public class AdminRepositoryImpl implements AdminRepository {
     @Override
     public AdminEntity findByEmail(String email) {
         EntityManager em=null;
-            try {
-                em=emf.createEntityManager();
-                log.info("findByEmail method");
-                AdminEntity adminEntity = em.createNamedQuery("findByEmail",AdminEntity.class).setParameter("email",email).getSingleResult();
-                log.info("AdminEntity found");
-                return adminEntity;
+        try {
+            em=emf.createEntityManager();
+            log.info("findByEmail method");
+            AdminEntity adminEntity = em.createNamedQuery("findByEmail",AdminEntity.class).setParameter("email",email).getSingleResult();
+            log.info("AdminEntity found");
+            return adminEntity;
 
-            }catch (PersistenceException e){
-                log.info("AdminEntity not found");
-                return null;
-            }finally {
-                em.close();
-            }
+        }catch (PersistenceException e){
+            log.info("AdminEntity not found");
+            return null;
+        }finally {
+            em.close();
+        }
     }
 
     @Override
     public void update(AdminEntity adminEntity) {
-            EntityManager em=null;
-            EntityTransaction et=null;
-            try{
-                em=emf.createEntityManager();
-                et=em.getTransaction();
-                et.begin();
+        EntityManager em=null;
+        EntityTransaction et=null;
+        try{
+            em=emf.createEntityManager();
+            et=em.getTransaction();
+            et.begin();
 
-                AdminEntity adminEntity1 = em.find(AdminEntity.class, adminEntity.getAdminId());
+            AdminEntity adminEntity1 = em.find(AdminEntity.class, adminEntity.getAdminId());
 
-                log.info("AdminEntity found{"+adminEntity1+"}");
-                adminEntity1.setName(adminEntity.getName());
-                adminEntity1.setEmail(adminEntity.getEmail());
-                adminEntity1.setPassword(adminEntity.getPassword());
-                adminEntity1.setMobileNumber(adminEntity.getMobileNumber());
-                // Persist lockout-related fields as well
-                adminEntity1.setFailedAttempts(adminEntity.getFailedAttempts());
-                adminEntity1.setAccountLocked(adminEntity.getAccountLocked());
-                // Persist reset token fields
-                adminEntity1.setResetToken(adminEntity.getResetToken());
-                adminEntity1.setResetTokenExpiry(adminEntity.getResetTokenExpiry());
+            log.info("AdminEntity found{"+adminEntity1+"}");
+            adminEntity1.setAdminName(adminEntity.getAdminName());
+            adminEntity1.setEmail(adminEntity.getEmail());
+            adminEntity1.setPassword(adminEntity.getPassword());
+            adminEntity1.setMobileNumber(adminEntity.getMobileNumber());
+            // Persist lockout-related fields as well
+            adminEntity1.setFailedAttempts(adminEntity.getFailedAttempts());
+            adminEntity1.setAccountLocked(adminEntity.getAccountLocked());
+            // Persist reset token fields
+            adminEntity1.setResetToken(adminEntity.getResetToken());
+            adminEntity1.setResetTokenExpiry(adminEntity.getResetTokenExpiry());
 
-                em.merge(adminEntity1);
-
-
+            em.merge(adminEntity1);
 
 
 
-              //  em.merge(adminEntity);
-                et.commit();
 
-                log.info("AdminEntity updated{"+adminEntity1+"}");
 
-            }catch (PersistenceException e){
-                et.rollback();
-                log.info("AdminEntity not updated");
-            }finally {
-                em.close();
-            }
+            //  em.merge(adminEntity);
+            et.commit();
+
+            log.info("AdminEntity updated{"+adminEntity1+"}");
+
+        }catch (PersistenceException e){
+            et.rollback();
+            log.info("AdminEntity not updated");
+        }finally {
+            em.close();
+        }
     }
 
     @Override

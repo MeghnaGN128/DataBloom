@@ -1,63 +1,96 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page isELIgnored="false" %>
-<html lang="en" xmlns:c="http://www.w3.org/1999/XSL/Transform">
+<html lang="en" xmlns:c="">
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>Admin Dashboard - Kamadhenu Milk Products</title>
 
     <!-- Bootstrap CSS & Icons -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/>
 
     <!-- External CSS -->
     <link href="CSS/styles.css" rel="stylesheet"/>
+
     <style>
-        /* Page-specific sidebar styles */
-        .sidebar.sidebar-yellow {
-            background: #FFF9DB; /* soft yellow */
-            border-right: 1px solid #F2D16D;
+        :root {
+            --k-yellow-50: #FFF9DB;
+            --k-yellow-100: #FFF4BF;
+            --k-yellow-200: #FFEAA7;
+            --k-yellow-300: #FFD866;
+            --k-yellow-400: #F2D16D;
+            --k-brown-900: #2C2300;
+            --k-brown-800: #3F3200;
+            --k-brown-700: #5B4A00;
+        }
+
+        /* Global layout wrapper */
+        body {
             min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background: #faf9f4;
+        }
+
+        .main-wrapper {
+            flex: 1 0 auto;
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            grid-template-rows: auto 1fr;
+            grid-template-areas:
+                "nav nav"
+                "sidebar main";
+        }
+
+        /* Navbar */
+        .custom-navbar {
+            grid-area: nav;
             position: sticky;
             top: 0;
+            z-index: 1030;
+            background: #ffffff;
+            border-bottom: 1px solid #eee5bf;
         }
-        .sidebar.sidebar-yellow h5 {
-            color: #5B4A00;
-            letter-spacing: 0.3px;
+
+        /* Sidebar */
+        .sidebar {
+            grid-area: sidebar;
+            background: var(--k-yellow-50);
+            border-right: 1px solid var(--k-yellow-400);
+            position: sticky;
+            top: 64px;
+            height: calc(100vh - 64px);
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            overflow-y: auto;
         }
-        .sidebar.sidebar-yellow .nav-link {
-            color: #5B4A00;
+
+        .sidebar h5 { color: var(--k-brown-700); }
+        .sidebar .nav-link {
+            color: var(--k-brown-700);
             padding: 10px 16px;
             border-radius: 8px;
             margin: 0 10px 8px 10px;
-            transition: background-color 0.2s ease, color 0.2s ease, transform 0.05s ease;
+            transition: background-color 0.2s ease, color 0.2s ease;
             font-weight: 500;
+            display: flex; align-items: center; gap: 0.5rem;
         }
-        .sidebar.sidebar-yellow .nav-link:hover {
-            background: #FFEAA7; /* hover yellow */
-            color: #3F3200;
+        .sidebar .nav-link:hover {
+            background: var(--k-yellow-200);
+            color: var(--k-brown-800);
         }
-        .sidebar.sidebar-yellow .nav-link.active,
-        .sidebar.sidebar-yellow .nav-link:focus {
-            background: #FFD866; /* active yellow */
-            color: #2C2300;
+        .sidebar .nav-link.active {
+            background: var(--k-yellow-300);
+            color: var(--k-brown-900);
             box-shadow: inset 2px 0 0 #C9A227;
         }
-        .sidebar.sidebar-yellow .nav-link.text-danger {
-            color: #B00020 !important;
-        }
-        .sidebar.sidebar-yellow .nav-link.text-danger:hover {
-            background: #FFE5E7;
-        }
-        @media (max-width: 767.98px) {
-            .sidebar.sidebar-yellow { position: static; min-height: auto; }
-        }
 
-        /* Dashboard metric cards */
+        /* Metric cards */
         .metric-card {
-            background: #ffffff;
-            border: 1px solid #f2e6b3; /* subtle yellow border */
+            background: #fff;
+            border: 1px solid #f2e6b3;
             border-radius: 16px;
             padding: 24px;
             display: flex;
@@ -67,222 +100,237 @@
             transition: transform 0.08s ease, box-shadow 0.2s ease;
             min-height: 120px;
         }
-        .metric-card:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(0,0,0,0.08); }
+        .metric-card:hover { transform: translateY(-2px); }
         .metric-icon {
-            width: 64px; height: 64px; border-radius: 12px;
+            width: 64px; height: 64px;
+            border-radius: 12px;
             display: grid; place-items: center;
-            background: #FFF4BF; color: #5B4A00;
+            background: var(--k-yellow-100);
+            color: var(--k-brown-700);
         }
-        .metric-icon i { font-size: 1.75rem; }
-        .metric-content .label { color: #6b5a00; font-weight: 600; font-size: 14px; letter-spacing: .3px; }
-        .metric-content .value { font-size: 32px; font-weight: 700; color: #2C2300; line-height: 1; }
-        .metric-products .metric-icon { background: #FFF4BF; }
-        .metric-orders .metric-icon { background: #E7F0FF; color: #103F91; }
-        .metric-customers .metric-icon { background: #EFFFF4; color: #0C6B32; }
-        .metric-agents .metric-icon { background: #FFEFF4; color: #9A1C39; }
 
-        /* Quick Actions */
-        .quick-actions .action-card {
-            background: #ffffff;
-            border: 1px solid #f2e6b3;
-            border-radius: 14px;
-            padding: 16px 18px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            height: 100%;
-            transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.06s ease;
+        /* Responsive fixes */
+        @media (max-width: 991.98px) {
+            .main-wrapper {
+                grid-template-columns: 1fr;
+                grid-template-areas:
+                    "nav"
+                    "main";
+            }
+            .sidebar { display: none; }
         }
-        .quick-actions .action-card:hover {
-            background: #FFF9DB;
-            box-shadow: 0 6px 18px rgba(0,0,0,0.06);
-            transform: translateY(-1px);
-        }
-        .quick-actions .icon {
-            width: 40px; height: 40px; border-radius: 10px;
-            display: grid; place-items: center;
-            background: #FFF4BF; color: #5B4A00;
-        }
-        .quick-actions .label { font-weight: 600; color: #3F3200; }
-        .quick-actions a { text-decoration: none; color: inherit; }
 
-        /* Overview panel */
-        .panel-card {
-            background: #ffffff;
-            border: 1px solid #f2e6b3;
-            border-radius: 14px;
-            padding: 18px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+        /* Offcanvas sidebar (mobile) */
+        .offcanvas-yellow {
+            background: var(--k-yellow-50);
+            border-right: 1px solid var(--k-yellow-400);
         }
-        .panel-card h6 { color: #5B4A00; font-weight: 700; margin-bottom: 12px; }
-        .panel-list { list-style: none; padding-left: 0; margin: 0; }
-        .panel-list li { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px dashed #f0e4a8; }
-        .panel-list li:last-child { border-bottom: none; }
-        .chip { padding: 2px 8px; border-radius: 999px; font-size: 12px; font-weight: 600; }
-        .chip.info { background: #E7F0FF; color: #103F91; }
-        .chip.success { background: #EFFFF4; color: #0C6B32; }
-        .chip.warn { background: #FFF4BF; color: #5B4A00; }
+
+        /* Footer pinned to bottom */
+        footer {
+            flex-shrink: 0;
+            background: #1f1f1f;
+            color: #fff;
+            padding: 40px 0 20px;
+        }
+        footer h6, footer h5 { color: #fff; }
+        footer a { color: #fff; text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
+        footer .border-top { border-color: #666 !important; }
     </style>
 </head>
-<body class="d-flex flex-column min-vh-100">
+<body>
 
+<!-- Offcanvas Sidebar (Mobile) -->
+<div class="offcanvas offcanvas-start offcanvas-yellow" tabindex="-1" id="mobileSidebar">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title fw-bold">Dashboard</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+        <nav class="nav flex-column">
+            <a class="nav-link" href="productDashboard"><i class="bi bi-grid"></i> Product Dashboard</a>
+            <a class="nav-link" href="#"><i class="bi bi-cart"></i> Orders</a>
+            <a class="nav-link" href="agentdashboard"><i class="bi bi-people"></i> Agents</a>
+            <a class="nav-link" href="#"><i class="bi bi-person-lines-fill"></i> Customers</a>
+            <a class="nav-link text-danger mt-3" href="logout"><i class="bi bi-box-arrow-right"></i> Logout</a>
+        </nav>
+    </div>
+</div>
 
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg custom-navbar">
-    <div class="container">
-        <a class="navbar-brand fw-bold" href="index.jsp">
-            <span class="logo-badge">
-                <img src="images/logo.jpg" alt="Kamadhenu Logo" style="height:50px;"/>
-            </span>
-            Kamadhenu Milk
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarNav" aria-controls="navbarNav"
-                aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
+<div class="main-wrapper">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg custom-navbar">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">
+                <span class="logo-badge">
+                    <img src="images/logo.jpg" alt="Kamadhenu Logo" style="height:50px;"/>
+                </span>
+                Kamadhenu Milk
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav" aria-controls="navbarNav"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-            <div class="navbar-nav ms-auto align-items-center">
-                <!-- Admin Profile Dropdown -->
+            <div class="navbar-nav ms-auto">
+                <div class="nav-item me-3">
+                    <a class="nav-link" href="index.jsp">
+                        <i class="bi bi-house-door me-1"></i>Home
+                    </a>
+                </div>
                 <div class="nav-item dropdown">
-                    <a class="nav-link p-0 dropdown-toggle" href="#" id="adminDropdown" role="button"
-                       data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="images/adminprofile.jpg" alt="Admin Profile"
-                             class="rounded-circle border" style="height:40px;width:40px; object-fit:cover;">
+                    <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="adminDropdown"
+                       role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="images/adminprofile.jpg" class="rounded-circle me-1" style="height:32px;width:32px;object-fit:cover;">
+                        <span>${sessionScope.adminDTO != null ? sessionScope.adminDTO.adminName : 'Admin'}</span>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="adminDropdown">
                         <li class="dropdown-item text-center">
-                            <img src="images/adminprofile.jpg" alt="Admin Profile"
-                                 class="rounded-circle mb-2" style="height:60px;width:60px;">
-                            <div class="fw-bold">
-                                ${sessionScope.adminDTO != null ? sessionScope.adminDTO.name : 'Admin'}
-                            </div>
-                            <div class="small text-muted">
-                                ${sessionScope.adminDTO != null ? sessionScope.adminDTO.email : 'admin@kamadhenu.com'}
-                            </div>
+                            <img src="images/adminprofile.jpg" class="rounded-circle mb-2 border" style="height:80px;width:80px;object-fit:cover;">
+                            <div class="fw-bold">${sessionScope.adminDTO != null ? sessionScope.adminDTO.adminName : 'Admin'}</div>
+                            <div class="small text-muted">${sessionScope.adminDTO != null ? sessionScope.adminDTO.email : 'admin@kamadhenu.com'}</div>
                         </li>
                         <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item text-danger" href="adminprofile">Profile</a></li>
-                        <li><a class="dropdown-item text-danger" href="adminLogin">Logout</a></li>
+                        <li>
+                            <a class="dropdown-item text-danger d-flex align-items-center gap-2" href="adminprofile">
+                                <i class="bi bi-person-circle"></i> Profile
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item text-danger d-flex align-items-center gap-2" href="adminloginsuccessfully">
+                                <i class="bi bi-arrow-return-left"></i> Admin Dashboard
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item text-danger d-flex align-items-center gap-2" href="logout">
+                                <i class="bi bi-box-arrow-right"></i> Logout
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
         </div>
     </div>
-</nav>
+    </nav>
 
-
-<!-- Main Layout -->
-<div class="container-fluid flex-grow-1">
-    <div class="row w-100">
-        <!-- Sidebar -->
-        <nav class="col-md-2 sidebar sidebar-yellow d-flex flex-column h-100 p-0">
-            <h5 class="fw-bold mb-4 ps-3 pt-3">Dashboard</h5>
-            <div class="nav flex-column">
-                <a class="nav-link" href="#">Products</a>
-                <a class="nav-link" href="#">Orders</a>
-                <a class="nav-link" href="#">Agents</a>
-                <a class="nav-link" href="#">Customers</a>
-                <a class="nav-link text-danger" href="logout">Logout</a>
-            </div>
+    <!-- Sidebar (Desktop) -->
+    <aside class="sidebar d-none d-lg-flex flex-column">
+        <h5 class="fw-bold ps-3">Dashboard</h5>
+        <nav class="nav flex-column">
+            <a class="nav-link" href="productDashboard"><i class="bi bi-grid"></i> Product Dashboard</a>
+            <a class="nav-link" href="#"><i class="bi bi-cart"></i> Orders</a>
+            <a class="nav-link" href="agentdashboard"><i class="bi bi-people"></i> Agents</a>
+            <a class="nav-link" href="#"><i class="bi bi-person-lines-fill"></i> Customers</a>
+            <a class="nav-link text-danger mt-auto" href="logout"><i class="bi bi-box-arrow-right"></i> Logout</a>
         </nav>
+    </aside>
 
-        <!-- Content Area -->
-        <main class="col-md-10 ms-sm-auto px-4 py-3">
-            <div class="mb-4">
-                <h3 class="mb-1">Welcome, ${sessionScope.adminDTO != null ? sessionScope.adminDTO.name : 'Admin'}</h3>
-                <div class="text-muted">Email: ${sessionScope.adminDTO != null ? sessionScope.adminDTO.email : 'admin@kamadhenu.com'}</div>
+    <!-- Main Content -->
+    <main class="p-4">
+        <div class="mb-4">
+            <h3>Welcome, ${sessionScope.adminDTO != null ? sessionScope.adminDTO.adminName : 'Admin'}</h3>
+            <div class="text-muted">Email: ${sessionScope.adminDTO != null ? sessionScope.adminDTO.email : 'admin@kamadhenu.com'}</div>
+        </div>
+
+        <style>
+            .metric-icon {
+              background-color: lightpink; /* uniform light pink color */
+              color: #fff; /* white icon color */
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              width: 60px;
+              height: 60px;
+              border-radius: 50%;
+              font-size: 1.5rem;
+            }
+        </style>
+
+        <div class="row g-3">
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="metric-card">
+                    <div class="metric-icon"><i class="bi bi-person-badge-fill"></i></div>
+                    <div>
+                        <div class="label">Products</div>
+                        <div class="value"><c:out value="${productCount}" default="0"/></div>
+                    </div>
+                </div>
             </div>
 
-            <!-- Dashboard Summary Cards -->
-            <div class="row g-3">
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="metric-card metric-products">
-                        <div class="metric-icon">
-                            <i class="bi bi-basket2-fill fs-4"></i>
-                        </div>
-                        <div class="metric-content">
-                            <div class="label">Products</div>
-                            <div class="value"><c:out value="${productsCount}" default="0"/></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="metric-card metric-orders">
-                        <div class="metric-icon">
-                            <i class="bi bi-receipt-cutoff fs-4"></i>
-                        </div>
-                        <div class="metric-content">
-                            <div class="label">Orders</div>
-                            <div class="value">
-                                <c:out value="${ordersCount}" default="0"/></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="metric-card metric-customers">
-                        <div class="metric-icon">
-                            <i class="bi bi-people-fill fs-4"></i>
-                        </div>
-                        <div class="metric-content">
-                            <div class="label">Customers</div>
-                            <div class="value"><c:out value="${customersCount}" default="0"/></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="metric-card metric-agents">
-                        <div class="metric-icon">
-                            <i class="bi bi-person-badge-fill fs-4"></i>
-                        </div>
-                        <div class="metric-content">
-                            <div class="label">Agents</div>
-                            <div class="value"><c:out value="${agentsCount}" default="0"/></div>
-                        </div>
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="metric-card">
+                    <div class="metric-icon"><i class="bi bi-receipt-cutoff"></i></div>
+                    <div>
+                        <div class="label">Orders</div>
+                        <div class="value"><c:out value="${ordersCount}" default="0"/></div>
                     </div>
                 </div>
             </div>
-</div>
 
-<!-- Footer -->
-<footer class="bg-dark text-white mt-auto">
-    <div class="container text-center text-md-start py-3">
-        <div class="row">
-            <div class="col-md-4 mb-3">
-                <h5 class="fw-bold mb-2">Kamadhenu Milk Products</h5>
-                <p>Bringing you fresh milk, curd, ghee, paneer and more from trusted farmers.</p>
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="metric-card">
+                    <div class="metric-icon"><i class="bi bi-people-fill"></i></div>
+                    <div>
+                        <div class="label">Customers</div>
+                        <div class="value"><c:out value="${customersCount}" default="0"/></div>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-2 mb-3">
-                <h6 class="fw-bold mb-2">Quick Links</h6>
-                <ul class="list-unstyled">
-                    <li><a href="index.jsp" class="text-white text-decoration-none">Home</a></li>
-                    <li><a href="register.jsp" class="text-white text-decoration-none">Register</a></li>
-                    <li><a href="adminLogin.jsp" class="text-white text-decoration-none">Admin Login</a></li>
-                    <li><a href="customerLogin.jsp" class="text-white text-decoration-none">Customer Login</a></li>
-                </ul>
-            </div>
-            <div class="col-md-3 mb-3">
-                <h6 class="fw-bold mb-2">Contact</h6>
-                <p><i class="bi bi-geo-alt-fill me-2"></i> Bengaluru, Karnataka</p>
-                <p><i class="bi bi-envelope-fill me-2"></i> support@kamadhenu.com</p>
-                <p><i class="bi bi-telephone-fill me-2"></i> +91 98765 43210</p>
-            </div>
-            <div class="col-md-3 mb-3">
-                <h6 class="fw-bold mb-2">Follow Us</h6>
-                <a href="#" class="text-white fs-5 me-2"><i class="bi bi-facebook"></i></a>
-                <a href="#" class="text-white fs-5 me-2"><i class="bi bi-twitter"></i></a>
-                <a href="#" class="text-white fs-5 me-2"><i class="bi bi-instagram"></i></a>
-                <a href="#" class="text-white fs-5"><i class="bi bi-linkedin"></i></a>
+
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="metric-card">
+                    <div class="metric-icon"><i class="bi bi-person-badge-fill"></i></div>
+                    <div>
+                        <div class="label">Agents</div>
+                        <div class="value"><c:out value="${agentCount}" default="0"/></div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="text-center pt-2 border-top border-secondary">
+
+
+    </main>
+</div>
+
+<!-- Footer (always bottom) -->
+<footer class="mt-auto">
+    <div class="container text-center text-md-start">
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <h5 class="fw-bold">Kamadhenu Milk Products</h5>
+                <p>Bringing you fresh milk, curd, ghee, paneer, and more from trusted farmers. Natural goodness with every drop.</p>
+            </div>
+            <div class="col-md-2 mb-4">
+                <h6 class="fw-bold">Quick Links</h6>
+                <ul class="list-unstyled">
+                    <li><a href="index.jsp">Home</a></li>
+                    <li><a href="register.jsp">Register</a></li>
+                    <li><a href="adminLogin">Admin Login</a></li>
+                    <li><a href="customerLogin.jsp">Customer Login</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3 mb-4">
+                <h6 class="fw-bold">Contact</h6>
+                <p><i class="bi bi-geo-alt-fill me-2"></i>Bengaluru, Karnataka</p>
+                <p><i class="bi bi-envelope-fill me-2"></i>support@kamadhenu.com</p>
+                <p><i class="bi bi-telephone-fill me-2"></i>+91 98765 43210</p>
+            </div>
+            <div class="col-md-3 mb-4">
+                <h6 class="fw-bold">Follow Us</h6>
+                <a href="#" class="me-3 fs-4"><i class="bi bi-facebook"></i></a>
+                <a href="#" class="me-3 fs-4"><i class="bi bi-twitter"></i></a>
+                <a href="#" class="me-3 fs-4"><i class="bi bi-instagram"></i></a>
+                <a href="#" class="fs-4"><i class="bi bi-linkedin"></i></a>
+            </div>
+        </div>
+        <div class="text-center border-top mt-3 pt-3">
             <p class="mb-0">&copy; 2025 Kamadhenu Milk Products. All Rights Reserved.</p>
         </div>
     </div>
 </footer>
 
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

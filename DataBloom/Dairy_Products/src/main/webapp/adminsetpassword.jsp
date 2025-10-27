@@ -1,93 +1,59 @@
-<%@ page contentType="text/html; charset=UTF-8" isELIgnored="false" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<html lang="en">
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page isELIgnored="false" %>
+<html lang="en" xmlns:c="http://www.w3.org/1999/XSL/Transform">
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>Set Admin Password - Kamadhenu Milk Products</title>
-
+    <title>Set New Password - Kamadhenu Milk Products</title>
     <!-- Bootstrap CSS & Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"/>
-
-    <!-- External CSS -->
-    <link href="CSS/styles.css" rel="stylesheet"/>
+    <link href="CSS/styles.css" rel="stylesheet"/> <!-- Link your main CSS -->
 
     <style>
         body {
-            background-image: url('images/background.jpg');
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
         }
-        .container-box {
-            max-width: 520px;
-            margin: 80px auto;
-            background: #fff;
-            padding: 28px 32px;
+        .password-container {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 30px;
+            background: white;
             border-radius: 10px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
         }
-        h1 {
-            font-size: 22px;
-            margin: 0 0 12px;
-            color: #111827;
+        .logo {
+            text-align: center;
+            margin-bottom: 20px;
         }
-        label {
-            display: block;
-            margin: 12px 0 6px;
-            color: #374151;
-            font-weight: 600;
+        .logo img {
+            max-width: 100px;
+            height: auto;
         }
-        input[type="password"] {
-            width: 100%;
-            padding: 10px 12px;
-            border: 1px solid #d1d5db;
-            border-radius: 8px;
-            outline: none;
+        .form-label {
+            font-weight: 500;
         }
-        .actions {
-            margin-top: 16px;
-            display: flex;
-            gap: 12px;
-            align-items: center;
-        }
-        button {
-            background: #2563eb;
-            color: #fff;
-            border: none;
-            padding: 10px 16px;
-            border-radius: 8px;
-            cursor: pointer;
-        }
-        .error {
-            background: #FEF2F2;
-            color: #991B1B;
-            border: 1px solid #FCA5A5;
-            padding: 10px 12px;
-            border-radius: 8px;
-            margin: 14px 0;
-        }
-        footer a:hover {
-            color: #00c853 !important;
-            transition: 0.3s;
-        }
-        footer .bi {
-            transition: transform 0.3s;
-        }
-        footer .bi:hover {
-            transform: scale(1.2);
+        .success-message {
+            text-align: center;
+            padding: 20px;
+            background-color: #d4edda;
+            color: #155724;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            display: none;
         }
     </style>
 </head>
 <body class="d-flex flex-column min-vh-100">
 
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg custom-navbar bg-light shadow-sm">
+<nav class="navbar navbar-expand-lg custom-navbar">
     <div class="container">
-        <a class="navbar-brand fw-bold" href="index.jsp">
-            <img src="images/logo.jpg" alt="Kamadhenu Logo" style="height:50px;"/>
+        <a class="navbar-brand fw-bold" href="#">
+            <span class="logo-badge">
+                <img src="images/logo.jpg" alt="Kamadhenu Logo" style="height:50px;"/>
+            </span>
             Kamadhenu Milk
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -97,48 +63,90 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <div class="navbar-nav ms-auto">
-                <a class="nav-link" href="index.jsp">Home</a>
+                <a class="nav-link" href="index.jsp">
+                    <i class="bi bi-house-door me-1"></i>Home
+                </a>
                 <div class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="loginDropdown"
-                       role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" id="loginDropdown" role="button" data-bs-toggle="dropdown">
                         Login
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="loginDropdown">
                         <li><a class="dropdown-item" href="adminLogin">Admin Login</a></li>
-                        <li><a class="dropdown-item" href="agentLogin.jsp">Agent Login</a></li>
+                        <li><a class="dropdown-item" href="agentdashboard">Agent Login</a></li>
+                        <li><a class="dropdown-item" href="adminloginsuccessfully">Admin Dashboard</a></li>
                         <li><a class="dropdown-item" href="customerLogin.jsp">Customer Login</a></li>
                     </ul>
                 </div>
-                <a class="nav-link" href="register.jsp">Register</a>
             </div>
         </div>
     </div>
 </nav>
 
-<!-- Password Form -->
-<div class="container-box">
-    <h1>Set New Password</h1>
-
-    <c:if test="${not empty error}">
-        <div class="error">${error}</div>
-    </c:if>
-
-    <form action="adminSetPassword" method="post">
-        <input type="hidden" name="token" value="${token}" />
-        <label for="password">New Password</label>
-        <input id="password" type="password" name="password" minlength="6" required />
-
-        <label for="confirmPassword">Confirm New Password</label>
-        <input id="confirmPassword" type="password" name="confirmPassword" minlength="6" required />
-
-        <div class="actions">
-            <button type="submit">Set Password</button>
-            <a href="adminLogin">Back to Login</a>
+<div class="container">
+    <div class="password-container">
+        <div class="logo">
+            <img src="images/logo.jpg" alt="Kamadhenu Logo" class="img-fluid">
         </div>
-    </form>
+
+        <c:if test="${not empty error}">
+            <div class="alert alert-danger" role="alert">
+                ${error}
+            </div>
+        </c:if>
+
+        <c:if test="${not empty message}">
+            <div class="alert alert-success text-center" role="alert">
+                <i class="bi bi-check-circle-fill me-2"></i>
+                ${message}
+                <div class="mt-2">
+                    <p class="mb-2">You will be redirected to the login page in <span id="countdown">5</span> seconds...</p>
+                    <a href="adminLogin" class="btn btn-success">Go to Login Now</a>
+                </div>
+            </div>
+            <script>
+                let seconds = 5;
+                const countdownElement = document.getElementById('countdown');
+                const countdown = setInterval(function() {
+                    seconds--;
+                    countdownElement.textContent = seconds;
+                    if (seconds <= 0) {
+                        clearInterval(countdown);
+                        window.location.href = 'adminLogin';
+                    }
+                }, 1000);
+            </script>
+        </c:if>
+
+        <c:if test="${empty message}">
+            <form action="adminSetPassword" method="post" class="needs-validation" novalidate>
+                <input type="hidden" name="token" value="${param.token}">
+
+                <div class="mb-3">
+                    <label for="password" class="form-label">New Password</label>
+                    <input type="password" class="form-control" id="password" name="password"
+                           placeholder="Enter new password" required minlength="8">
+                    <div class="form-text">Password must be at least 8 characters long</div>
+                </div>
+
+                <div class="mb-4">
+                    <label for="confirmPassword" class="form-label">Confirm New Password</label>
+                    <input type="password" class="form-control" id="confirmPassword" name="confirmPassword"
+                           placeholder="Confirm new password" required>
+                    <div id="passwordMatch" class="form-text"></div>
+                </div>
+
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-primary btn-lg">Reset Password</button>
+                </div>
+            </form>
+
+            <div class="text-center mt-3">
+                <a href="adminLogin" class="text-decoration-none">Back to Login</a>
+            </div>
+        </c:if>
+    </div>
 </div>
 
-<!-- Footer -->
 <footer class="bg-dark text-white pt-5 pb-4 mt-auto">
     <div class="container text-center text-md-start">
         <div class="row">
@@ -175,7 +183,6 @@
     </div>
 </footer>
 
-<!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

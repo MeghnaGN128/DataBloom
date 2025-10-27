@@ -11,6 +11,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import javax.mail.internet.MimeMessage;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
+import javax.transaction.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
@@ -26,6 +30,9 @@ public class AdminServiceImpl implements AdminService {
 
     @Autowired(required = false)
     JavaMailSender mailSender;
+    
+    @PersistenceContext
+    private EntityManager entityManager;
 
     private static final int MAX_FAILED_ATTEMPTS = 3;
     private static final int TOKEN_EXPIRY_MINUTES = 30;
@@ -51,8 +58,8 @@ public class AdminServiceImpl implements AdminService {
     @Override
     public AdminDTO adminlogin(String email, String password) {
         if(email ==null || password ==null){
-        return null;
-    }
+            return null;
+        }
         AdminEntity adminEntity = adminRepository.findByEmail(email);
 
         if(adminEntity ==null){
@@ -87,27 +94,36 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
+    @Transactional
     public boolean update(AdminDTO adminDTO1) {
-        AdminEntity adminEntity = adminRepository.findByEmail(adminDTO1.getEmail());
-        if(adminEntity ==null){
+        try {
+            AdminEntity adminEntity = adminRepository.findByEmail(adminDTO1.getEmail());
+            if (adminEntity == null) {
+                log.error("No admin found with email: {}", adminDTO1.getEmail());
+                return false;
+            }
+
+            log.info("Updating admin profile for: {}", adminDTO1.getEmail());
+            log.info("New mobile number: {}", adminDTO1.getMobileNumber());
+            
+            // Update the fields that can be modified
+            adminEntity.setAdminName(adminDTO1.getAdminName());
+            adminEntity.setMobileNumber(adminDTO1.getMobileNumber());
+            
+            // Only update password if a new one was provided
+            if (adminDTO1.getPassword() != null && !adminDTO1.getPassword().isEmpty()) {
+                String encodedPassword = passwordEncoder.encode(adminDTO1.getPassword());
+                adminEntity.setPassword(encodedPassword);
+            }
+            
+            // Save the updated entity
+            adminRepository.update(adminEntity);
+            log.info("Successfully updated admin profile for: {}", adminDTO1.getEmail());
+            return true;
+        } catch (Exception e) {
+            log.error("Error updating admin profile: {}", e.getMessage(), e);
             return false;
         }
-
-       // adminEntity.setAdminId(adminDTO1.getAdminId());
-        adminEntity.setName(adminDTO1.getName());
-        adminEntity.setEmail(adminDTO1.getEmail());
-        adminEntity.setMobileNumber(adminDTO1.getMobileNumber());
-      //  adminEntity.setPassword(adminDTO1.getPassword());
-
-      //  adminEntity.setConfirmPassword(adminDTO1.getConfirmPassword());
-
-
-
-     //   BeanUtils.copyProperties(adminDTO1, adminEntity,"adminId","confirmPassword");
-        String encodedPassword = passwordEncoder.encode(adminDTO1.getPassword());
-        adminEntity.setPassword(encodedPassword);
-        adminRepository.update(adminEntity);
-        return true;
     }
 
     @Override
@@ -174,6 +190,45 @@ public class AdminServiceImpl implements AdminService {
         adminEntity.setAccountLocked(false);
         adminRepository.update(adminEntity);
         return true;
+    }
+
+    @Override
+    public AdminEntity findByEmailEntity(String email) {
+        return adminRepository.findByEmail(email);
+    }
+
+    @Override
+    public boolean mobileNumberExists(String mobileNumber) {
+        if (mobileNumber == null) {
+            return false;
+        }
+        try {
+            log.info("Checking if mobile number exists: {}", mobileNumber);
+            TypedQuery<AdminEntity> query = entityManager.createQuery(
+                "SELECT a FROM AdminEntity a WHERE a.mobileNumber = :mobileNumber", 
+                AdminEntity.class
+            );
+            query.setParameter("mobileNumber", mobileNumber);
+            return !query.getResultList().isEmpty();
+        } catch (Exception e) {
+            log.error("Error checking if mobile number exists: {}", e.getMessage(), e);
+            return false;
+        }
+    }
+
+    @Override
+    public AdminDTO findByEmail(String email) {
+        AdminEntity adminEntity = adminRepository.findByEmail(email);
+        if (adminEntity != null) {
+            AdminDTO dto = new AdminDTO();
+            dto.setAdminId(adminEntity.getAdminId());
+            dto.setAdminName(adminEntity.getAdminName());
+            dto.setEmail(adminEntity.getEmail());
+            dto.setMobileNumber(adminEntity.getMobileNumber());
+            dto.setPassword(adminEntity.getPassword());
+            return dto;
+        }
+        return null;
     }
 
 }

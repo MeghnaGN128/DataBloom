@@ -21,7 +21,7 @@ public class AdminRestController {
     AdminService adminService;
 
 
-    @PostMapping("/adminDetails")
+    @PostMapping("/api/admindetails")
     public ResponseEntity<String> saveAdminDetails(@Valid @RequestBody AdminDTO adminDTO,
                                                    BindingResult bindingResult) {
         System.out.println("saveAdminDetails method in rest controller");

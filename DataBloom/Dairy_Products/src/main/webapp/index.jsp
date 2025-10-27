@@ -50,7 +50,12 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <div class="navbar-nav ms-auto">
-                <a class="nav-link" href="index.jsp">Home</a>
+                <!-- Home Link -->
+                <div class="nav-item me-3">
+                    <a class="nav-link" href="index.jsp">
+                        <i class="bi bi-house-door me-1"></i>Home
+                    </a>
+                </div>
                 <div class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="loginDropdown"
                        role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -58,11 +63,11 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="loginDropdown">
                         <li><a class="dropdown-item" href="adminLogin">Admin Login</a></li>
-                        <li><a class="dropdown-item" href="agentLogin.jsp">Agent Login</a></li>
-                        <li><a class="dropdown-item" href="customerLogin.jsp">Customer Login</a></li>
+                        <li><a class="dropdown-item" href="agentdashboard">Agent Login</a></li>
+                        <li><a class="dropdown-item" href="customerLogin">Customer Login</a></li>
+                        <li><a class="dropdown-item" href="adminloginsuccessfully">Admin Dashboard</a></li>
                     </ul>
                 </div>
-                <a class="nav-link" href="register.jsp">Register</a>
             </div>
         </div>
     </div>
@@ -71,7 +76,7 @@
 <!-- Hero Section -->
 <header class="text-center py-5" style="background: transparent;">
     <h1 class="display-5 fw-bold">Welcome to Kamadhenu Milk Products</h1>
-    <a href="register.jsp" class="btn btn-success btn-lg mt-3">Get Started</a>
+
 </header>
 
 <!-- About Section -->
@@ -143,9 +148,7 @@
                 <h6 class="text-uppercase fw-bold mb-3">Quick Links</h6>
                 <ul class="list-unstyled">
                     <li><a href="index.jsp" class="text-white text-decoration-none">Home</a></li>
-                    <li><a href="register.jsp" class="text-white text-decoration-none">Register</a></li>
                     <li><a href="adminLogin" class="text-white text-decoration-none">Admin Login</a></li>
-                    <li><a href="customerLogin.jsp" class="text-white text-decoration-none">Customer Login</a></li>
                 </ul>
             </div>
 

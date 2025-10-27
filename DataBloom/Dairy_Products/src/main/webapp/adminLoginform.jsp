@@ -53,19 +53,20 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <div class="navbar-nav ms-auto">
-                <a class="nav-link" href="index.jsp">Home</a>
+                <a class="nav-link" href="index.jsp">
+                    <i class="bi bi-house-door me-1"></i>Home
+                </a>
                 <div class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="loginDropdown" role="button"
                        data-bs-toggle="dropdown" aria-expanded="false">
                         Login
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="loginDropdown">
-                        <li><a class="dropdown-item" href="adminLogin.jsp">Admin Login</a></li>
-                        <li><a class="dropdown-item" href="agentLogin.jsp">Agent Login</a></li>
+                        <li><a class="dropdown-item" href="agentdashboard">Agent Login</a></li>
+                        <li><a class="dropdown-item" href="adminloginsuccessfully">Admin Dashboard</a></li>
                         <li><a class="dropdown-item" href="customerLogin.jsp">Customer Login</a></li>
                     </ul>
                 </div>
-                <a class="nav-link" href="register.jsp">Register</a>
             </div>
         </div>
     </div>
@@ -78,21 +79,16 @@
 
         <!-- Success / Error Messages -->
         <c:if test="${not empty message}">
-            <div id="alertMessage"
-                 class="alert
-                 <c:choose>
-                     <c:when test='${message eq "You have been logged out successfully."}'>alert-success</c:when>
-            <c:otherwise>alert-danger</c:otherwise>
-            </c:choose>">
-            ${message}
-    </div>
-    </c:if>
+            <div class="alert ${message.contains('successfully') ? 'alert-success' : 'alert-danger'}" id="alertMessage">
+                ${message}
+            </div>
+        </c:if>
 
     <!-- Login Form -->
     <form action="adminLoginSuccess" method="post">
         <div class="mb-3">
-            <label for="adminName" class="form-label">Admin Name</label>
-            <input type="text" class="form-control" id="adminName" name="adminName" placeholder="Enter admin name" required/>
+            <label for="adminName" class="form-label">Admin email</label>
+            <input type="text" class="form-control" id="adminName" name="adminName" placeholder="Enter admin email" required/>
         </div>
         <div class="mb-3">
             <label for="password" class="form-label">Password</label>
@@ -125,9 +121,9 @@
                 <h6 class="text-uppercase fw-bold mb-3">Quick Links</h6>
                 <ul class="list-unstyled">
                     <li><a href="index.jsp" class="text-white text-decoration-none">Home</a></li>
-                    <li><a href="register.jsp" class="text-white text-decoration-none">Register</a></li>
                     <li><a href="adminLogin.jsp" class="text-white text-decoration-none">Admin Login</a></li>
                     <li><a href="customerLogin.jsp" class="text-white text-decoration-none">Customer Login</a></li>
+                    <li><a href="agentLogin.jsp" class="text-white text-decoration-none">Agent Login</a></li>
                 </ul>
             </div>
             <!-- Contact -->

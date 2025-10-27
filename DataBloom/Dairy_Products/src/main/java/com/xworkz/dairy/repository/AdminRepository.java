@@ -11,3 +11,5 @@ public interface AdminRepository {
 
     AdminEntity findByResetToken(String token);
 }
+
+
